@@ -17,7 +17,11 @@ public class PROYECTO1 {
         Grafo grafito = new Grafo();
         grafito.crearMatrizAd();
 
-        
+//    Esto es para lo del camino min 
+
+            long matrizA[][] ={};
+            Camino_Min_Floyd ruta = new Camino_Min_Floyd();
+            System.out.println(ruta.AlgoritmoFloyd(matrizA));
         
         
 
