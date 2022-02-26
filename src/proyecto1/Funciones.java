@@ -4,11 +4,13 @@
  */
 package proyecto1;
 
+import java.awt.Component;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -27,6 +29,69 @@ public class Funciones {
         this.users = users;
         this.relation = relation;
         this.Usuarios = Usuarios;
+    }
+    
+    
+    public static void extraerInf(Component padre){
+         try{
+               JFileChooser file=new JFileChooser();
+               file.showOpenDialog(null);
+               File archivo=file.getSelectedFile();
+               String ruta =  archivo.getAbsolutePath();
+               if(archivo!=null && ruta.substring(ruta.length()-3).equalsIgnoreCase("txt")){
+                    FileReader archivos=new FileReader(archivo);
+                    BufferedReader br=new BufferedReader(archivos);
+                    String line;
+                    boolean resturantes = false;
+                    boolean clientes = false;
+                    boolean pedidos = false;
+                    boolean rutas = false;
+                    while ((line = br.readLine()) != null){
+                        line = line.trim();
+                        if(line.contains("Restaurantes")){
+                            clientes = false;
+                            pedidos = false;
+                            rutas = false;
+                            resturantes = true;
+                        }else if (line.contains("Clientes")){
+                            clientes = true;
+                            pedidos = false;
+                            rutas = false;
+                            resturantes = false;
+                        }else if (line.contains("Pedidos")){
+                            clientes = false;
+                            pedidos = true;
+                            rutas = false;
+                            resturantes = false;
+                        }else if (line.contains("Rutas")){
+                            clientes = false;
+                            pedidos = false;
+                            rutas = true;
+                            resturantes = false;
+                        }
+                        
+                        if(resturantes){
+                            
+                        }else if(pedidos){
+                            
+                        }else if(rutas){
+                            
+                        }else if(clientes){
+                            
+                        }  
+                        
+                    }
+                  
+                  br.close();
+               }else{
+                   
+                   JOptionPane.showMessageDialog(padre, "Debe ingresar un archivo con extension '.txt' ");
+                   
+               }   
+            } catch (IOException ex){
+                System.out.println(ex);
+                System.out.println("error al leer el txt");
+        }
     }
     
     /*METODOS Y PROCEDIMIENTOS*/
@@ -87,5 +152,6 @@ public class Funciones {
         }
             
             
-    }}
+    }
+}
     
