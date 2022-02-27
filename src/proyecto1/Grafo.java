@@ -16,20 +16,27 @@ import javax.swing.JFileChooser;
  * @author giubo
  */
 public class Grafo{
-        public String  users [][];
-        public String relation [][];
+        String  users [][];
+        String relation [][];
+
         boolean Usuarios;
         Arista matrizAd [][];
-   
+        private char label;
+        private boolean visited;
+        public int vertices [];
 
     public Grafo() {
-        this.users = users;
+        this.users= users;
         this.relation = relation;
-        this.Usuarios = Usuarios;
+        this.Usuarios = false;
         this.matrizAd = matrizAd;
+        this.label = label;
+        this.visited = false;
     }
-        
+
+   
     public void Leertxt(){
+
         String line;
         String userstxt = "";
         String relationtxt ="";
@@ -43,76 +50,99 @@ public class Grafo{
                     FileReader archivos=new FileReader(abre);
                     BufferedReader br=new BufferedReader(archivos);
                     while ((line = br.readLine()) != null){
-                        System.out.println(line);
                     if (!line.isEmpty()) {
                         if ("Usuarios".equals(line)) {
-                             Usuarios= true;   
+                             Usuarios= true;  
+ 
+                         
                         }else if 
                             ("Relaciones".equals(line)) {
                              Usuarios = false;
+                             System.out.println("hola");
                         }
                              
-                        if (Usuarios = true){
+                        if (Usuarios == true){
                              userstxt += line + "\n";
+                        
                              
-                        }else{
-                             relationtxt += line + "\n";
+                        }else {
+                             relationtxt += line + "\n";   
                         }}
                     }
-                  if ((!"".equals(relationtxt)) &&(!"".equals(userstxt))){
+                    
+                  if ((!"".equals(relationtxt)) && (!"".equals(userstxt))){
                     String[] UsersSplit = userstxt.split("\n");
                     String[] RelationSplit = relationtxt.split("\n");
                     
                     for (int i = 0; i < UsersSplit.length; i++) {
                         String[] UsersSplit2 = UsersSplit[i].split(",");
+                        System.out.println(Arrays.toString(users));
                          users[i] = UsersSplit2;
+                         
                     }
                     
                     for (int j = 0; j < RelationSplit.length; j++) {
                         String[] RelationSplit2 = RelationSplit[j].split(",");
-                        
                          relation[j] = RelationSplit2;
+                        
                     
                   }
-                  
-                     System.out.println(Arrays.toString(relation));
+                     for (int i = 0; i < relation.length; i++) {
+                          System.out.println(i);  
+                      }
+                   
                     }
                   br.close();
                }      
             } catch (IOException ex){
-                System.out.println(ex);
                 System.out.println("error al leer el txt");
         }
             
             
     }  
      public void crearMatrizAd(){
-     
         Leertxt();
-      
         for (int i = 0; i < relation.length; i++){ 
-           
+            System.out.println(relation.length);
         String relacion  [] = relation[i];
         int fila= Integer.parseInt(relacion[0]);
         int columna = Integer.parseInt(relacion[1]);
         int years = Integer.parseInt(relacion[2]);
         Arista aristaAux = new Arista(fila, columna, years);
 
+        
          matrizAd[fila][columna] = aristaAux;
          matrizAd[columna][fila]= aristaAux;
-           System.out.println(matrizAd);
+         vertices[i] = fila;
+         vertices[i+1]= columna;
+          }
            
-         
-         
-       }
-      
+     
+}
+     public void recorridoBFS(){
+         for (int i = 0; i < matrizAd.length; i++) {
+             for (int j = 0; j < matrizAd.length; j++) {
+                 System.out.println(j);
+                 
+                     
+                 }
+             }
              
-              
-               
-       }
-           
+         }
+         
+         
+         
+     }
+     
+
        
-       }
+           
+    
+       
+       
+
+       
+       
     
     
     
