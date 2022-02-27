@@ -156,15 +156,15 @@ public class Main extends javax.swing.JFrame {
     private void cargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarActionPerformed
 
        this.repo = Funciones.extraerInf(jLabel1);
-
+       
     }//GEN-LAST:event_cargarActionPerformed
 
     private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
 
 //        JOptionPane.showOptionDialog(this, "Que accion deseas hacer ?", title, WIDTH, HEIGHT, icon, options, EXIT_ON_CLOSE)
-        ActualizarRepo ar = new ActualizarRepo(this, true);
-        
+        ActRepo ar = new ActRepo(this, true);
         ar.setVisible(true);
+
         //this.dispose();
     }//GEN-LAST:event_actualizarActionPerformed
 

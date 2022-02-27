@@ -54,7 +54,6 @@ public class Funciones {
                     boolean primerArista = true;
                     boolean cuerpo = true;
                     while ((line = br.readLine()) != null){
-                        System.out.println(line);
                         line = line.trim();
                         if(line.contains("Usuarios")){
                             relaciones = false;
@@ -113,7 +112,8 @@ public class Funciones {
                     listArista.setUltimo(nodoAristaEval);
                     repo.setAristaList(listArista);
                     repo.setUsuariosList(listUsuario);
-                    br.close();                  
+                    br.close(); 
+                     JOptionPane.showMessageDialog(padre, "Archivo cargado correctamente");
                     return repo;
                }else{
                    
@@ -121,6 +121,9 @@ public class Funciones {
                    
                }   
                }
+               
+              
+               
             } catch (IOException ex){
                 System.out.println(ex);
                 System.out.println("error al leer el txt");
