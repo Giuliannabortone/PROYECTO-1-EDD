@@ -32,11 +32,13 @@ public class Funciones {
     }
     
     
-    public static void extraerInf(Component padre){
+    public static Repositorio extraerInf(Component padre){
          try{
                JFileChooser file=new JFileChooser();
                file.showOpenDialog(null);
                File archivo=file.getSelectedFile();
+               if(archivo!=null){
+               Repositorio repo = new Repositorio();
                String ruta =  archivo.getAbsolutePath();
                if(ruta.substring(ruta.length()-3).equalsIgnoreCase("txt")){
                     FileReader archivos=new FileReader(archivo);
@@ -109,32 +111,23 @@ public class Funciones {
                     }
                     nodoAristaEval.setSiguiente(null);
                     listArista.setUltimo(nodoAristaEval);
-                  
-                  br.close();
-                  Nodo<Arista> arista = listArista.getPrimero();
-                  while(arista != null){
-                      System.out.println("Destino ->" + arista.valor.getDestino());
-                      System.out.println("Origen ->" + arista.valor.getOrigen());
-                      System.out.println("Años ->" + arista.valor.getYears());
-                      arista = arista.getSiguiente();
-                  }
-                  
-                  Nodo<Usuario> usuario = listUsuario.getPrimero();
-                  while(usuario != null){
-                      System.out.println("Usuario ->" + usuario.valor.getUsuario());
-                      System.out.println("Id ->" + usuario.valor.getId());
-                      usuario = usuario.getSiguiente();
-                  }                  
-                  
+                    repo.setAristaList(listArista);
+                    repo.setUsuariosList(listUsuario);
+                    br.close();                  
+                    return repo;
                }else{
                    
                    JOptionPane.showMessageDialog(padre, "Debe ingresar un archivo con extension '.txt' ");
                    
                }   
+               }
             } catch (IOException ex){
                 System.out.println(ex);
                 System.out.println("error al leer el txt");
         }
+         
+         return null;
+         
     }
     
     /*METODOS Y PROCEDIMIENTOS*/
@@ -192,9 +185,7 @@ public class Funciones {
             } catch (IOException ex){
                 System.out.println(ex);
                 System.out.println("error al leer el txt");
-        }
-            
-            
+        }            
     }
 }
     

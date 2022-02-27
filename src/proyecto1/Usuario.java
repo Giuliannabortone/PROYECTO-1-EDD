@@ -9,12 +9,10 @@ package proyecto1;
  * @author smoreno
  */
 public class Usuario {
-    int id;
-    String usuario;
+    private int id;
+    private String usuario;
 
-    public Usuario() {
-        
-        
+    public Usuario() {        
     }
 
     public int getId() {
