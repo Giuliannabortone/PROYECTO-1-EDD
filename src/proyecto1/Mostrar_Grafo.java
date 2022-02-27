@@ -11,11 +11,19 @@ package proyecto1;
  */
 public class Mostrar_Grafo extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Mostrar_Grafo
-     */
+   Funciones data;
+   
+    
+    
     public Mostrar_Grafo() {
         initComponents();
+////                this.data = data;
+////        for (int x = 0; x < data.grafoGuardado.matrizAdy.length; x++) {
+////            for (int y = 0; y < data.grafoGuardado.matrizAdy[x].length; y++) {
+////                jTextArea1.append(Integer.toString(data.grafoGuardado.matrizAdy[x][y]) + "   ");
+////            }
+////            jTextArea1.append("\n");
+//        }
     }
 
     /**

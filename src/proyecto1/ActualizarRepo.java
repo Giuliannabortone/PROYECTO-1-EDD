@@ -55,9 +55,18 @@ public class ActualizarRepo extends javax.swing.JDialog {
         });
 
         jButton2.setText("Eliminar Usuario");
-        jButton2.setActionCommand("Eliminar Usuario");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Agregar relacion");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jPanelAggUsuario.setBackground(new java.awt.Color(255, 153, 153));
         jPanelAggUsuario.setVisible(false);
@@ -205,6 +214,14 @@ public class ActualizarRepo extends javax.swing.JDialog {
         System.out.println("Repositorio ->" + Main.repo);
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
