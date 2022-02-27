@@ -18,6 +18,7 @@ import javax.swing.JFileChooser;
 public class Grafo{
         String  users [][];
         String relation [][];
+
         boolean Usuarios;
         Arista matrizAd [][];
         private char label;

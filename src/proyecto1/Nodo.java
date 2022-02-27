@@ -6,29 +6,42 @@ package proyecto1;
 
 /**
  *
- * @author giubo
+ * @author smoreno
  */
-public class Nodo {
-    int integer;
-    Nodo next;
+public class Nodo<T> {
+    
+    Nodo<T> siguiente;
+    T valor;
+    Nodo<T> anterior;
 
-    public Nodo(int integer) {
-        this.integer = integer;
-        this.next = null;
+    public Nodo() {
     }
-    /**
-     * Description: regresa el valor del integer
-     * @return el valor de integer
-     */
-    public int valorInt(){
-        return integer;
+    
+
+    public T getValor() {
+        return valor;
     }
-    /**
-     * Description: regresa el valor del siguiente nodo
-     * @return el siguiente nodo
-     */
-    public Nodo getSiguiente() {
-        return next;
+
+    public void setValor(T valor) {
+        this.valor = valor;
     }
+
+    public Nodo<T> getSiguiente() {
+        return siguiente;
+    }
+
+    public void setSiguiente(Nodo<T> siguiente) {
+        this.siguiente = siguiente;
+    }
+
+    public Nodo<T> getAnterior() {
+        return anterior;
+    }
+
+    public void setAnterior(Nodo<T> anterior) {
+        this.anterior = anterior;
+    }
+
+    
+    
 }
-
