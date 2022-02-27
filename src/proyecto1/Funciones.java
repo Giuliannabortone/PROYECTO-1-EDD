@@ -6,9 +6,14 @@ package proyecto1;
 
 import java.awt.Component;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -31,6 +36,39 @@ public class Funciones {
         this.Usuarios = Usuarios;
     }
     
+    public static void actualizarTxt(){
+        BufferedWriter bw = null;
+        try {
+            bw = new BufferedWriter(new FileWriter(Main.rutaTxt));
+            Lista<Arista> aristaLista = Main.repo.getAristaList();
+            Lista<Usuario> usuarioLista = Main.repo.getUsuariosList();
+            Nodo<Usuario> usr = usuarioLista.getPrimero();
+            Nodo<Arista> ars = aristaLista.getPrimero();
+            bw.write("Usuarios\n");
+            while(usr!=null){
+                bw.write(usr.getValor().getId() + ", " + usr.getValor().getUsuario() + "\n");
+                usr = usr.getSiguiente();
+            }
+            bw.write("Relaciones\n");
+            while(ars!=null){
+                bw.write(ars.getValor().getOrigen()+ ", " + ars.getValor().getDestino()+ ", " + ars.getValor().getYears()+ "\n");
+                ars = ars.getSiguiente();
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(Funciones.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            if (bw!=null){
+                try {
+                    bw.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(Funciones.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        
+        
+        
+    }
     
     public static Repositorio extraerInf(Component padre){
          try{
@@ -40,6 +78,7 @@ public class Funciones {
                if(archivo!=null){
                Repositorio repo = new Repositorio();
                String ruta =  archivo.getAbsolutePath();
+               Main.rutaTxt = archivo.getAbsolutePath();
                if(ruta.substring(ruta.length()-3).equalsIgnoreCase("txt")){
                     FileReader archivos=new FileReader(archivo);
                     BufferedReader br=new BufferedReader(archivos);

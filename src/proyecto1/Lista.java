@@ -11,9 +11,9 @@ package proyecto1;
  */
 public class Lista<T> {
     
-    Nodo<T> primero;
-    Nodo<T> ultimo;
-    int tamanio;
+    private Nodo<T> primero;
+    private Nodo<T> ultimo;
+    private int tamanio;
 
     public Lista() {
     }

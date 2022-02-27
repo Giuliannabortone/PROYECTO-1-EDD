@@ -219,7 +219,7 @@ public class Main extends javax.swing.JFrame {
         });
     }
     
-    
+    static String rutaTxt;
     static Repositorio repo;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton actualizar;

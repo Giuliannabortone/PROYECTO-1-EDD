@@ -52,11 +52,11 @@ public class ActRepo extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jButton9 = new javax.swing.JButton();
+        jPanelDelUsr = new javax.swing.JPanel();
+        jButtonConfDelUsr = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jList3 = new javax.swing.JList<>();
+        jListDelUsr = new javax.swing.JList<>();
         jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jButtonAggUsr = new javax.swing.JButton();
@@ -241,24 +241,26 @@ public class ActRepo extends javax.swing.JDialog {
             .addGroup(jPanelAggRelacLayout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addGroup(jPanelAggRelacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanelAggRelacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelAggRelacLayout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelAggRelacLayout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanelAggRelacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelAggRelacLayout.createSequentialGroup()
-                                .addGap(68, 68, 68)
+                                .addGap(51, 51, 51)
                                 .addComponent(jSpinnerAniosRel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanelAggRelacLayout.createSequentialGroup()
-                                .addGap(32, 32, 32)
+                                .addGap(15, 15, 15)
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(26, 26, 26)
                                 .addGroup(jPanelAggRelacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButton8)
-                                    .addComponent(jButtonConfAggRel)))))
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jButtonConfAggRel))))))
                 .addGap(34, 34, 34))
         );
         jPanelAggRelacLayout.setVerticalGroup(
@@ -284,52 +286,69 @@ public class ActRepo extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
-        jPanel4.setBackground(new java.awt.Color(255, 51, 51));
+        jPanelDelUsr.setBackground(new java.awt.Color(255, 51, 51));
+        jPanelDelUsr.setVisible(false);
 
-        jButton9.setText("jButton9");
+        jButtonConfDelUsr.setText("Eliminar");
+        jButtonConfDelUsr.setEnabled(false);
+        jButtonConfDelUsr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonConfDelUsrActionPerformed(evt);
+            }
+        });
 
-        jButton10.setText("jButton10");
+        jButton10.setText("Cerrar");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
 
-        jList3.setModel(new javax.swing.AbstractListModel<String>() {
+        jListDelUsr.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane3.setViewportView(jList3);
+        jListDelUsr.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jListDelUsrValueChanged(evt);
+            }
+        });
+        jScrollPane3.setViewportView(jListDelUsr);
 
-        jLabel8.setText("jLabel8");
+        jLabel8.setText("Usuario a eliminar");
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout jPanelDelUsrLayout = new javax.swing.GroupLayout(jPanelDelUsr);
+        jPanelDelUsr.setLayout(jPanelDelUsrLayout);
+        jPanelDelUsrLayout.setHorizontalGroup(
+            jPanelDelUsrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelDelUsrLayout.createSequentialGroup()
+                .addGroup(jPanelDelUsrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelDelUsrLayout.createSequentialGroup()
+                        .addGap(239, 239, 239)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelDelUsrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton10)
-                            .addComponent(jButton9))
-                        .addGap(148, 148, 148))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(286, 286, 286))))
+                            .addComponent(jButtonConfDelUsr)))
+                    .addGroup(jPanelDelUsrLayout.createSequentialGroup()
+                        .addGap(257, 257, 257)
+                        .addComponent(jLabel8)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        jPanelDelUsrLayout.setVerticalGroup(
+            jPanelDelUsrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelDelUsrLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jButton9)
+                .addGroup(jPanelDelUsrLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDelUsrLayout.createSequentialGroup()
+                        .addComponent(jButtonConfDelUsr)
                         .addGap(18, 18, 18)
                         .addComponent(jButton10)
                         .addGap(22, 22, 22))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDelUsrLayout.createSequentialGroup()
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
         );
@@ -351,8 +370,18 @@ public class ActRepo extends javax.swing.JDialog {
         });
 
         jButtonDelUsr.setText("Eliminar Usuario");
+        jButtonDelUsr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDelUsrActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("jButton4");
+        jButton4.setText("Guardar ");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -360,7 +389,7 @@ public class ActRepo extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelAggUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanelAggRelac, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelDelUsr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -386,8 +415,8 @@ public class ActRepo extends javax.swing.JDialog {
                 .addComponent(jPanelAggUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelAggRelac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanelDelUsr, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAggUsr)
@@ -439,7 +468,6 @@ public class ActRepo extends javax.swing.JDialog {
         this.idMax = this.idMax+1;
         nuevoUsuario.setId(this.idMax);
         nuevoUsuario.setUsuario(nmUsuario);
-        System.out.println("---->" + nuevoUsuario.getId());
         int idRelacion = 0;
         while(usuario!=null){
             if(usuario.getValor().getUsuario().equals(jListUsuarios.getSelectedValue())){
@@ -454,20 +482,14 @@ public class ActRepo extends javax.swing.JDialog {
         Main.repo.getAristaList().agregarAlFinal(relacion);
         Main.repo.getUsuariosList().agregarAlFinal(nuevoUsuario);
         JOptionPane.showMessageDialog(this, "Usuario agregado correctamente");
-        usuario = Main.repo.getUsuariosList().getPrimero();
-        modelo = new DefaultListModel();
-        while(usuario!=null){
-            System.out.println(usuario.getValor().getUsuario());
-            modelo.addElement(usuario.getValor().getUsuario());
-            usuario=usuario.getSiguiente();
-        }
+        modelo.addElement(nuevoUsuario.getUsuario());
         jListUsuarios.setModel(modelo);
-
-//        usuario = Main.repo.getUsuariosList().getPrimero();
-//        while(usuario!=null){
-//            System.out.println(usuario.getValor().getUsuario());
-//            usuario=usuario.getSiguiente();
-//        }
+//        
+////        usuario = Main.repo.getUsuariosList().getPrimero();
+////        while(usuario!=null){
+////            System.out.println(usuario.getValor().getUsuario());
+////            usuario=usuario.getSiguiente();
+////        }
     }//GEN-LAST:event_jButtonConfAggUsrActionPerformed
 
     private void jTextFieldNombreUsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldNombreUsuarioFocusLost
@@ -545,16 +567,19 @@ public class ActRepo extends javax.swing.JDialog {
 
         Main.repo.getAristaList().agregarAlFinal(relacion);
         JOptionPane.showMessageDialog(this, "Relacion creada");
-//        Nodo<Arista>arista = Main.repo.getAristaList().getPrimero();
-//        while(arista!=null){
-//            System.out.println("Origen-> "+arista.getValor().getOrigen()+ "; Destino-> "+arista.getValor().getDestino()+ ";Anios-> "+arista.getValor().getYears());
-//            arista=arista.getSiguiente();
-//        }
+        Nodo<Arista>arista = Main.repo.getAristaList().getPrimero();
+        while(arista!=null){
+            System.out.println("Origen-> "+arista.getValor().getOrigen()+ "; Destino-> "+arista.getValor().getDestino()+ ";Anios-> "+arista.getValor().getYears());
+            arista=arista.getSiguiente();
+        }
     }//GEN-LAST:event_jButtonConfAggRelActionPerformed
 
     private void jListRelacion1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListRelacion1ValueChanged
         // TODO add your handling code here:
-         if(jListRelacion1.getSelectedValue()!=null && jListRelacion2.getSelectedValue()!=null && (Integer)jSpinnerAniosRel.getValue() != 0){
+         if(jListRelacion1.getSelectedValue()!=null 
+                && jListRelacion2.getSelectedValue()!=null 
+                && (Integer)jSpinnerAniosRel.getValue() > 0
+                && !(jListRelacion1.getSelectedValue().equals(jListRelacion2.getSelectedValue()))){
                             jButtonConfAggRel.setEnabled(true);
         }else{
             jButtonConfAggRel.setEnabled(false);
@@ -594,7 +619,10 @@ public class ActRepo extends javax.swing.JDialog {
     private void jListRelacion2ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListRelacion2ValueChanged
         // TODO add your handling code here:
         
-        if(jListRelacion1.getSelectedValue()!=null && jListRelacion2.getSelectedValue()!=null && (Integer)jSpinnerAniosRel.getValue() != 0){
+        if(jListRelacion1.getSelectedValue()!=null 
+                && jListRelacion2.getSelectedValue()!=null 
+                && (Integer)jSpinnerAniosRel.getValue() > 0
+                && !(jListRelacion1.getSelectedValue().equals(jListRelacion2.getSelectedValue()))){
                             jButtonConfAggRel.setEnabled(true);
         }else{
             jButtonConfAggRel.setEnabled(false);
@@ -604,7 +632,10 @@ public class ActRepo extends javax.swing.JDialog {
     private void jSpinnerAniosRelStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerAniosRelStateChanged
         // TODO add your handling code here:
         
-        if(jListRelacion1.getSelectedValue()!=null && jListRelacion2.getSelectedValue()!=null && (Integer)jSpinnerAniosRel.getValue() != 0){
+        if(jListRelacion1.getSelectedValue()!=null 
+                && jListRelacion2.getSelectedValue()!=null 
+                && (Integer)jSpinnerAniosRel.getValue() > 0
+                && !(jListRelacion1.getSelectedValue().equals(jListRelacion2.getSelectedValue()))){
                             jButtonConfAggRel.setEnabled(true);
         }else{
             jButtonConfAggRel.setEnabled(false);
@@ -618,6 +649,96 @@ public class ActRepo extends javax.swing.JDialog {
         jButtonAggUsr.setEnabled(true);
         jButtonDelUsr.setEnabled(true);
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButtonConfDelUsrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfDelUsrActionPerformed
+        // TODO add your handling code here:
+        Nodo<Usuario> usuario = Main.repo.getUsuariosList().getPrimero();
+        
+        int idRelacionUsu = 0;
+        while(usuario!=null){
+            if(usuario.getValor().getUsuario().equals(jListDelUsr.getSelectedValue())){
+                idRelacionUsu = usuario.getValor().getId();
+                if(usuario.getAnterior()!=null)usuario.getAnterior().setSiguiente(usuario.getSiguiente());
+                if(usuario.getSiguiente()!=null)usuario.getSiguiente().setAnterior(usuario.getAnterior());
+                break;
+            }
+            usuario = usuario.getSiguiente();
+        }
+        
+        Nodo<Arista> relacion = Main.repo.getAristaList().getPrimero();
+
+        while(relacion!=null){
+            if(relacion.getValor().getDestino()== idRelacionUsu 
+                    || relacion.getValor().getOrigen()== idRelacionUsu){
+                if(relacion.getAnterior()!=null)relacion.getAnterior().setSiguiente(relacion.getSiguiente());
+                if(relacion.getSiguiente()!=null)relacion.getSiguiente().setAnterior(relacion.getAnterior());
+            }
+            relacion = relacion.getSiguiente();
+        }
+        
+        JOptionPane.showMessageDialog(this, "Usuario y sus relaciones eliminadas");
+        usuario = Main.repo.getUsuariosList().getPrimero();
+
+        modelo = new DefaultListModel();
+        while(usuario!=null){
+            modelo.addElement(usuario.getValor().getUsuario());
+            usuario=usuario.getSiguiente();
+        }
+        
+        jListDelUsr.setModel(modelo);
+        Nodo<Arista>arista = Main.repo.getAristaList().getPrimero();
+        while(arista!=null){
+            System.out.println("Origen-> "+arista.getValor().getOrigen()+ "; Destino-> "+arista.getValor().getDestino()+ ";Anios-> "+arista.getValor().getYears());
+            arista=arista.getSiguiente();
+        }
+        
+        usuario = Main.repo.getUsuariosList().getPrimero();
+        while(usuario!=null){
+            System.out.println(usuario.getValor().getUsuario());
+            usuario=usuario.getSiguiente();
+        }
+    }//GEN-LAST:event_jButtonConfDelUsrActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+         jPanelDelUsr.setVisible(false);
+        jButtonAggRelac.setEnabled(true);
+        jButtonAggUsr.setEnabled(true);
+        jButtonDelUsr.setEnabled(true);
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jListDelUsrValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListDelUsrValueChanged
+        // TODO add your handling code here:
+        jButtonConfDelUsr.setEnabled(true);
+    }//GEN-LAST:event_jListDelUsrValueChanged
+
+    private void jButtonDelUsrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDelUsrActionPerformed
+        // TODO add your handling code here:
+        jButtonAggRelac.setEnabled(false);
+        jButtonAggUsr.setEnabled(false);
+        jButtonDelUsr.setEnabled(false);
+        if(modelo==null){
+            Nodo<Usuario> usuario = Main.repo.getUsuariosList().getPrimero();
+            modelo = new DefaultListModel();
+            this.idMax = 0;
+            while(usuario!=null){
+                System.out.println(usuario.getValor().getUsuario());
+                modelo.addElement(usuario.getValor().getUsuario());
+                if(usuario.getValor().getId()>this.idMax)this.idMax=usuario.getValor().getId();
+                usuario=usuario.getSiguiente();
+            }
+        }
+        
+        jListDelUsr.setModel(modelo);
+        jPanelDelUsr.setVisible(true);
+    }//GEN-LAST:event_jButtonDelUsrActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        
+        Funciones.actualizarTxt();
+        JOptionPane.showMessageDialog(this, "Informacion guardada");
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -669,11 +790,11 @@ public class ActRepo extends javax.swing.JDialog {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JButton jButtonAggRelac;
     private javax.swing.JButton jButtonAggUsr;
     private javax.swing.JButton jButtonConfAggRel;
     private javax.swing.JButton jButtonConfAggUsr;
+    private javax.swing.JButton jButtonConfDelUsr;
     private javax.swing.JButton jButtonDelUsr;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -683,14 +804,14 @@ public class ActRepo extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JList<String> jList3;
+    private javax.swing.JList<String> jListDelUsr;
     private javax.swing.JList<String> jListRelacion1;
     private javax.swing.JList<String> jListRelacion2;
     private javax.swing.JList<String> jListUsuarios;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanelAggRelac;
     private javax.swing.JPanel jPanelAggUsuario;
+    private javax.swing.JPanel jPanelDelUsr;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
