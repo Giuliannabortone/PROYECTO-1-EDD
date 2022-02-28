@@ -114,24 +114,24 @@ public class Grafo{
                     if(Integer.parseInt(usrId[i]) == dest)destIndex = i;
                     
                 }
-                ady[orgIndex][destIndex] = year;
+                ady[destIndex][orgIndex] = year;
                 relaciones = relaciones.getSiguiente();
             }
-//            for(int j=0; j< usrId.length; j++){
-//                
-//                    System.out.print( usrId[j] + "  " );        
-//                
-//            }
-//            System.out.println();
-//            for(int i=0; i< ady.length; i++){
-//                System.out.print( usrId[i] + "  " );
-//            for(int j=0; j< ady.length; j++){
-//                
-//                    System.out.print( ady[i][j] + "  " );        
-//                
-//            }
-//            System.out.println();
-//        }          
+            for(int j=0; j< usrId.length; j++){
+                
+                    System.out.print( usrId[j] + "  " );        
+                
+            }
+            System.out.println();
+            for(int i=0; i< ady.length; i++){
+                System.out.print( usrId[i] + "  " );
+            for(int j=0; j< ady.length; j++){
+                
+                    System.out.print( ady[i][j] + "  " );        
+                
+            }
+            System.out.println();
+        }          
     Main.matrizAdy = ady;
      
 }
