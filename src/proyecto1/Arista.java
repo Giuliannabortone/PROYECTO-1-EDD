@@ -21,6 +21,10 @@ public class Arista {
         this.destino = destino;
         this.years = years;
     }
+    
+    public Arista() {
+
+    }
 
     /**
      * @return the origen
