@@ -34,8 +34,13 @@ public class Lista<T> {
 	public void agregarAlFinal(T valor) {
 		Nodo<T> ultim = new Nodo();
                 ultim.setValor(valor);
-		this.getUltimo().setSiguiente(ultim);
-		ultim.setAnterior(this.getUltimo());
+                if(this.getPrimero()==null){
+                    this.setPrimero(ultim);
+                }
+                if(this.getUltimo()!= null){
+                    this.getUltimo().setSiguiente(ultim);
+                    ultim.setAnterior(this.getUltimo());
+                }
 		this.setUltimo(ultim);
 		this.setTamanio(this.getTamanio()+1);
 	}
@@ -51,8 +56,12 @@ public class Lista<T> {
 
 	public void eliminarAlInicio() {
 		Nodo inicio = this.getPrimero();
+                if(inicio.getSiguiente()!=null){
 		inicio.getSiguiente().setAnterior(null);
 		this.setPrimero(inicio.getSiguiente());
+                }else{
+                    this.setPrimero(null);
+                }
 		inicio.setSiguiente(null);
 		this.setTamanio(this.getTamanio()-1);
 	}

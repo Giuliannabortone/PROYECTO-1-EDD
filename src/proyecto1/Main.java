@@ -161,11 +161,17 @@ public class Main extends javax.swing.JFrame {
     private void cargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarActionPerformed
 
        this.repo = Funciones.extraerInf(jLabel1);
-       actualizar.setEnabled(true);
-       mostrar.setEnabled(true);
-       cantidad_islas.setEnabled(true);
-       identificacion_puentes.setEnabled(true);
-
+       if(this.repo != null){
+        actualizar.setEnabled(true);
+        mostrar.setEnabled(true);
+        cantidad_islas.setEnabled(true);
+        identificacion_puentes.setEnabled(true);
+       }else{
+           actualizar.setEnabled(false);
+        mostrar.setEnabled(false);
+        cantidad_islas.setEnabled(false);
+        identificacion_puentes.setEnabled(false);
+       }
     }//GEN-LAST:event_cargarActionPerformed
 
     private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed

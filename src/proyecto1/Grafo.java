@@ -18,6 +18,11 @@ import javax.swing.JFileChooser;
 public class Grafo{
         String  users [][];
         String relation [][];
+        
+        String usrId[];
+        
+        private boolean[] visitiadoAnchura ;
+        private boolean[] visitiadoProfunidad;
 
         boolean Usuarios;
         Arista matrizAd [][];
@@ -93,7 +98,7 @@ public class Grafo{
             usr = usr.getSiguiente();
 
         }
-         String usrId[] = usuariosStr.split(",");
+          usrId = usuariosStr.split(",");
          
             int[][] ady;
             ady = new int[usrId.length][usrId.length];
@@ -133,20 +138,53 @@ public class Grafo{
 //            System.out.println();
 //        }          
     Main.matrizAdy = ady;
+         recorridoAnchura(0);
      
 }
-     public void recorridoBFS(){
-         for (int i = 0; i < matrizAd.length; i++) {
-             for (int j = 0; j < matrizAd.length; j++) {
-                 System.out.println(j);
-                 
-                     
-                 }
-             }
-             
-         }
-         
-         
+     
+
+
+public Lista<Integer> recorridoAnchura(int nodoI) {
+        visitiadoAnchura = new boolean[Main.matrizAdy.length];
+        visitiadoProfunidad = new boolean[Main.matrizAdy.length];
+        //Lista donde guardo los nodos recorridos
+        Lista<Integer> recorridos = new Lista<>();
+        //El nodo inicial ya está visitado
+        visitiadoAnchura[nodoI] = true;
+        //Cola de visitas de los Lis adyacentes
+        Lista<Integer> cola = new Lista<>();
+        //Se lista el nodo como ya recorrido
+        recorridos.agregarAlFinal(nodoI);
+        //Se agrega el nodo a la cola de visitas
+        cola.agregarAlFinal(nodoI);
+        //Hasta que visite todos los nodos
+        while (cola.getPrimero()!=null) {
+            int j = (int)cola.getPrimero().getValor();
+            System.out.println("------------------------------->" + usrId[j]);
+            System.out.println(cola.getPrimero().getValor()+ "----//----");
+            cola.eliminarAlInicio(); //Se saca el primero nodo de la cola
+        //Se busca en la matriz que representa el grafo los nodos adyacentes
+        for (int i = 0; i < Main.matrizAdy.length; i++) {
+        //Si es un nodo adyacente y no está visitado entonces
+            System.out.println((Main.matrizAdy[j][i] >= 1) + "--");
+            System.out.println(visitiadoAnchura[i]);
+            if (Main.matrizAdy[j][i] >= 1 && !visitiadoAnchura[i]) {
+                System.out.println(i + "//////////////////");
+                cola.agregarAlFinal(i);//Se agrega a la cola de visitas
+                recorridos.agregarAlFinal(i);//Se marca como recorrido
+                visitiadoAnchura[i] = true;//Se marca como visitado
+                }
+            }
+        }
+        Nodo<Integer> i = recorridos.getPrimero();
+        while(i != null){
+            
+            System.out.println("----" + usrId[i.getValor()] + "----");
+            i = i.getSiguiente();
+        }
+        
+                return recorridos;//Devuelvo el recorrido del grafo en anchura
+            }
          
      }
      
