@@ -20,20 +20,20 @@ public class MostrarGrafov1 extends javax.swing.JDialog {
     public MostrarGrafov1(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        pantalla.append(Grafo.printMatriz());
     }
 
-    public MostrarGrafov1() {
-
+    public void MostrarGrafov1() {
         initComponents();
-        String a = "aaaaa";
-        pantalla.append(a);
-        this.data = data;
-        for (int x = 0; x < data.GrafoGuardado.matrizAd.length; x++) {
-            for (int y = 0; y < data.GrafoGuardado.matrizAd[x].length; y++) {
-                pantalla.append((data.GrafoGuardado.matrizAd[x][y]) + "   ");
-            }
-            pantalla.append("\n");
-        }
+//        String a = "aaaaa";
+        
+//        this.data = data;
+//        for (int x = 0; x < data.GrafoGuardado.matrizAd.length; x++) {
+//            for (int y = 0; y < data.GrafoGuardado.matrizAd[x].length; y++) {
+//                pantalla.append((data.GrafoGuardado.matrizAd[x][y]) + "   ");
+//            }
+//            pantalla.append("\n");
+//        }
     }
 
     /**
@@ -46,7 +46,6 @@ public class MostrarGrafov1 extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         pantalla = new javax.swing.JTextArea();
 
@@ -54,21 +53,12 @@ public class MostrarGrafov1 extends javax.swing.JDialog {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(255, 102, 0));
-        jButton1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jButton1.setText("Listo");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(329, 215, -1, -1));
-
         pantalla.setColumns(20);
         pantalla.setRows(5);
+        pantalla.setEditable(false);
         jScrollPane1.setViewportView(pantalla);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 380, 199));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 360, 199));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -83,12 +73,6 @@ public class MostrarGrafov1 extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//        Main main = new Main(this.data);
-//        main.setVisible(true);
-//        this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -133,7 +117,6 @@ public class MostrarGrafov1 extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea pantalla;
