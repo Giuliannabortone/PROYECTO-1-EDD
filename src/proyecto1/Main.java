@@ -166,8 +166,10 @@ public class Main extends javax.swing.JFrame {
         mostrar.setEnabled(true);
         cantidad_islas.setEnabled(true);
         identificacion_puentes.setEnabled(true);
+        Grafo grafo = new Grafo();
+        grafo.crearMatrizAd();
        }else{
-           actualizar.setEnabled(false);
+        actualizar.setEnabled(false);
         mostrar.setEnabled(false);
         cantidad_islas.setEnabled(false);
         identificacion_puentes.setEnabled(false);
@@ -194,8 +196,9 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_mostrarActionPerformed
 
     private void cantidad_islasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantidad_islasActionPerformed
-        Grafo grafito = new Grafo();
-        grafito.crearMatrizAd();
+           
+        
+        
     }//GEN-LAST:event_cantidad_islasActionPerformed
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
