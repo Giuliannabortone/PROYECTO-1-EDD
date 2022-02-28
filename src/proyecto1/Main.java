@@ -58,6 +58,7 @@ public class Main extends javax.swing.JFrame {
         actualizar.setBackground(new java.awt.Color(255, 102, 0));
         actualizar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         actualizar.setText("Actualizar repositorio");
+        actualizar.setEnabled(false);
         actualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 actualizarActionPerformed(evt);
@@ -66,6 +67,7 @@ public class Main extends javax.swing.JFrame {
 
         mostrar.setBackground(new java.awt.Color(255, 102, 0));
         mostrar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        mostrar.setEnabled(false);
         mostrar.setText("Mostrar grafo");
         mostrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,6 +77,7 @@ public class Main extends javax.swing.JFrame {
 
         cantidad_islas.setBackground(new java.awt.Color(255, 102, 0));
         cantidad_islas.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        cantidad_islas.setEnabled(false);
         cantidad_islas.setText("Mostrar cantidad de islas");
         cantidad_islas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,6 +88,7 @@ public class Main extends javax.swing.JFrame {
         modificar.setBackground(new java.awt.Color(255, 102, 0));
         modificar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         modificar.setText("Modificar");
+        modificar.setEnabled(false);
         modificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modificarActionPerformed(evt);
@@ -94,6 +98,7 @@ public class Main extends javax.swing.JFrame {
         identificacion_puentes.setBackground(new java.awt.Color(255, 102, 0));
         identificacion_puentes.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         identificacion_puentes.setText("Identificación de puentes");
+        identificacion_puentes.setEnabled(false);
         identificacion_puentes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 identificacion_puentesActionPerformed(evt);
@@ -155,16 +160,21 @@ public class Main extends javax.swing.JFrame {
 
     private void cargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarActionPerformed
 
-        this.repo = Funciones.extraerInf(jLabel1);
+       this.repo = Funciones.extraerInf(jLabel1);
+       actualizar.setEnabled(true);
+       mostrar.setEnabled(true);
+       cantidad_islas.setEnabled(true);
+       identificacion_puentes.setEnabled(true);
 
     }//GEN-LAST:event_cargarActionPerformed
 
     private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
 
 //        JOptionPane.showOptionDialog(this, "Que accion deseas hacer ?", title, WIDTH, HEIGHT, icon, options, EXIT_ON_CLOSE)
-        ActualizarRepo ar = new ActualizarRepo(this, true);
+        ActRepo ar = new ActRepo(this, true);
 
         ar.setVisible(true);
+
         //this.dispose();
     }//GEN-LAST:event_actualizarActionPerformed
 
@@ -178,7 +188,8 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_mostrarActionPerformed
 
     private void cantidad_islasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantidad_islasActionPerformed
-
+        Grafo grafito = new Grafo();
+        grafito.crearMatrizAd();
     }//GEN-LAST:event_cantidad_islasActionPerformed
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
@@ -223,7 +234,8 @@ public class Main extends javax.swing.JFrame {
             }
         });
     }
-
+    static int[][] matrizAdy;
+    static String rutaTxt;
     static Repositorio repo;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton actualizar;

@@ -16,103 +16,149 @@ import javax.swing.JFileChooser;
  * @author giubo
  */
 public class Grafo{
-        public String  users [][];
-        public String relation [][];
+        String  users [][];
+        String relation [][];
+
         boolean Usuarios;
         Arista matrizAd [][];
-   
+        private char label;
+        private boolean visited;
+        public int vertices [];
 
     public Grafo() {
-        this.users = users;
+        this.users= users;
         this.relation = relation;
-        this.Usuarios = Usuarios;
+        this.Usuarios = false;
         this.matrizAd = matrizAd;
+        this.label = label;
+        this.visited = false;
     }
-        
+
+   
     public void Leertxt(){
-        String line;
-        String userstxt = "";
-        String relationtxt ="";
-            
-            try{
-               JFileChooser file=new JFileChooser();
-               file.showOpenDialog(null);
-               File abre=file.getSelectedFile();
-               
-               if(abre!=null){
-                    FileReader archivos=new FileReader(abre);
-                    BufferedReader br=new BufferedReader(archivos);
-                    while ((line = br.readLine()) != null){
-                        System.out.println(line);
-                    if (!line.isEmpty()) {
-                        if ("Usuarios".equals(line)) {
-                             Usuarios= true;   
-                        }else if 
-                            ("Relaciones".equals(line)) {
-                             Usuarios = false;
-                        }
-                             
-                        if (Usuarios = true){
-                             userstxt += line + "\n";
-                             
-                        }else{
-                             relationtxt += line + "\n";
-                        }}
-                    }
-                  if ((!"".equals(relationtxt)) &&(!"".equals(userstxt))){
-                    String[] UsersSplit = userstxt.split("\n");
-                    String[] RelationSplit = relationtxt.split("\n");
-                    
-                    for (int i = 0; i < UsersSplit.length; i++) {
-                        String[] UsersSplit2 = UsersSplit[i].split(",");
-                         users[i] = UsersSplit2;
-                    }
-                    
-                    for (int j = 0; j < RelationSplit.length; j++) {
-                        String[] RelationSplit2 = RelationSplit[j].split(",");
-                        
-                         relation[j] = RelationSplit2;
-                    
-                  }
-                  
-                     System.out.println(Arrays.toString(relation));
-                    }
-                  br.close();
-               }      
-            } catch (IOException ex){
-                System.out.println(ex);
-                System.out.println("error al leer el txt");
-        }
-            
+//            
+//                    
+//                    Nodo<Usuario> usuarios = Main.repo.getUsuariosList().getPrimero();
+//                    Nodo<Arista> relaciones = Main.repo.getAristaList().getPrimero();
+//                    String usuariosStr = "";
+//                    String relacionesStr ="";
+//                    while(usuarios!=null){
+//                        
+//                        usuariosStr = usuariosStr + String.valueOf(usuarios.getValor().getId()) + "," + usuarios.getValor().getUsuario() + "\n";
+//                        usuarios = usuarios.getSiguiente();
+//                        
+//                    }
+//                    
+//                    while(relaciones!=null){
+//                        
+//                        relacionesStr = relacionesStr + String.valueOf(relaciones.getValor().getOrigen()) + "," + relaciones.getValor().getDestino()+ "," + relaciones.getValor().getYears()+ "\n";
+//                        relaciones = relaciones.getSiguiente();                        
+//                    }
+//                    
+//                  if ((!"".equals(relacionesStr)) && (!"".equals(usuariosStr))){
+//                    String[] UsersSplit = usuariosStr.split("\n");
+//                    String[] RelationSplit = relacionesStr.split("\n");
+//                    
+//                    for (int i = 0; i < UsersSplit.length; i++) {
+//                        String[] UsersSplit2 = UsersSplit[i].split(",");
+//                        System.out.println(Arrays.toString(users));
+//                         users[i] = UsersSplit2;
+//                         
+//                    }
+//                    
+//                    for (int j = 0; j < RelationSplit.length; j++) {
+//                        String[] RelationSplit2 = RelationSplit[j].split(",");
+//                        relation[j] = RelationSplit2;
+//                        
+//                    
+//                  }
+//                     for (int i = 0; i < relation.length; i++) {
+//                          System.out.println(i);  
+//                      }
+//                   
+//                    }        
+
+
+                       
             
     }  
      public void crearMatrizAd(){
-     
-        Leertxt();
-      
-        for (int i = 0; i < relation.length; i++){ 
-           
-        String relacion  [] = relation[i];
-        int fila= Integer.parseInt(relacion[0]);
-        int columna = Integer.parseInt(relacion[1]);
-        int years = Integer.parseInt(relacion[2]);
-        Arista aristaAux = new Arista(fila, columna, years);
+         
+         Nodo<Arista> relaciones = Main.repo.getAristaList().getPrimero();
+         Lista<Usuario> usuarios = Main.repo.getUsuariosList();
+         Nodo<Usuario> usr = usuarios.getPrimero();
+         String usuariosStr = "";
+        while(usr!=null){
+            usuariosStr = usuariosStr + String.valueOf(usr.getValor().getId()) + ",";
+            usr = usr.getSiguiente();
 
-         matrizAd[fila][columna] = aristaAux;
-         matrizAd[columna][fila]= aristaAux;
-           System.out.println(matrizAd);
-           
+        }
+         String usrId[] = usuariosStr.split(",");
          
-         
-       }
-      
+            int[][] ady;
+            ady = new int[usrId.length][usrId.length];
+            for (int[] is : ady) {
+                for (int i : is) {
+                    i=0;
+                }
+         }
+            while(relaciones!=null){
+                int org = relaciones.getValor().getOrigen();
+                int dest = relaciones.getValor().getDestino();
+                int year = relaciones.getValor().getYears();
+                int orgIndex = 0;
+                int destIndex = 0;
+                for(int i=0; i<usrId.length; i++){
+                    
+                    if(Integer.parseInt(usrId[i]) == org)orgIndex = i;
+                    if(Integer.parseInt(usrId[i]) == dest)destIndex = i;
+                    
+                }
+                ady[orgIndex][destIndex] = year;
+                relaciones = relaciones.getSiguiente();
+            }
+//            for(int j=0; j< usrId.length; j++){
+//                
+//                    System.out.print( usrId[j] + "  " );        
+//                
+//            }
+//            System.out.println();
+//            for(int i=0; i< ady.length; i++){
+//                System.out.print( usrId[i] + "  " );
+//            for(int j=0; j< ady.length; j++){
+//                
+//                    System.out.print( ady[i][j] + "  " );        
+//                
+//            }
+//            System.out.println();
+//        }          
+    Main.matrizAdy = ady;
+     
+}
+     public void recorridoBFS(){
+         for (int i = 0; i < matrizAd.length; i++) {
+             for (int j = 0; j < matrizAd.length; j++) {
+                 System.out.println(j);
+                 
+                     
+                 }
+             }
              
-              
-               
-       }
-           
+         }
+         
+         
+         
+     }
+     
+
        
-       }
+           
+    
+       
+       
+
+       
+       
     
     
     
