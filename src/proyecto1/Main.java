@@ -25,6 +25,10 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
     }
+    
+    public Main(Funciones data){
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -166,6 +170,10 @@ public class Main extends javax.swing.JFrame {
        cantidad_islas.setEnabled(true);
        identificacion_puentes.setEnabled(true);
 
+        
+       
+       
+
     }//GEN-LAST:event_cargarActionPerformed
 
     private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
@@ -174,11 +182,17 @@ public class Main extends javax.swing.JFrame {
         ActRepo ar = new ActRepo(this, true);
 
         ar.setVisible(true);
+       
 
         //this.dispose();
     }//GEN-LAST:event_actualizarActionPerformed
 
     private void mostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarActionPerformed
+        
+        
+        MostrarGrafov1 newWin = new MostrarGrafov1(this, true);
+        
+        newWin.setVisible(true);
         
 //        Mostrar_Grafo newWin = new Mostrar_Grafo(this.a);
 //        newWin.setVisible(true);
@@ -190,6 +204,8 @@ public class Main extends javax.swing.JFrame {
     private void cantidad_islasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantidad_islasActionPerformed
         Grafo grafito = new Grafo();
         grafito.crearMatrizAd();
+                System.out.println(matrizAdy);
+        System.out.println(repo.getUsuariosList().getPrimero().getValor());
     }//GEN-LAST:event_cantidad_islasActionPerformed
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
