@@ -11,12 +11,25 @@ package proyecto1;
  */
 public class Mostrar_Grafo extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Mostrar_Grafo
-     */
+   Funciones data;
+   
+
+    
+    
     public Mostrar_Grafo() {
         initComponents();
+                this.data = data;
+        for (int x = 0; x < data.GrafoGuardado.matrizAd.length; x++) {
+            for (int y = 0; y < data.GrafoGuardado.matrizAd[x].length; y++) {
+                jTextArea1.append((data.GrafoGuardado.matrizAd[x][y]) + "   ");
+            }
+            jTextArea1.append("\n");
+        }
     }
+
+
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -73,7 +86,9 @@ public class Mostrar_Grafo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
- 
+        Main main = new Main();
+        main.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
