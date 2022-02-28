@@ -92,6 +92,7 @@ public class Funciones {
                     boolean primerUsuario = true;
                     boolean primerArista = true;
                     boolean cuerpo = true;
+                    int caNodos = 0;
                     while ((line = br.readLine()) != null){
                         line = line.trim();
                         if(line.contains("Usuarios")){
@@ -123,8 +124,8 @@ public class Funciones {
                                 nodoUsuario.setAnterior(nodoUsuarioEval);
                                 nodoUsuarioEval.setSiguiente(nodoUsuario);
                             }
-                            
-                            nodoUsuarioEval = nodoUsuario;                            
+                            caNodos=caNodos+1;
+                            nodoUsuarioEval = nodoUsuario; 
                             
                         }else if(relaciones && cuerpo){
                             String[] arrArista = line.split(",");
@@ -147,6 +148,8 @@ public class Funciones {
                         }
                         cuerpo = true;
                     }
+                    listUsuario.setTamanio(caNodos);
+                    System.out.println("proyecto1.Funciones.extraerInf() ->" + listUsuario.getTamanio());
                     nodoAristaEval.setSiguiente(null);
                     listArista.setUltimo(nodoAristaEval);
                     repo.setAristaList(listArista);

@@ -181,7 +181,8 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_mostrarActionPerformed
 
     private void cantidad_islasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantidad_islasActionPerformed
-
+        Grafo grafito = new Grafo();
+        grafito.crearMatrizAd();
     }//GEN-LAST:event_cantidad_islasActionPerformed
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
@@ -227,6 +228,7 @@ public class Main extends javax.swing.JFrame {
         });
     }
     
+    static int[][] matrizAdy;
     static String rutaTxt;
     static Repositorio repo;
     // Variables declaration - do not modify//GEN-BEGIN:variables
