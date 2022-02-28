@@ -19,10 +19,10 @@ public class Grafo{
         String  users [][];
         String relation [][];
         
-        String usrId[];
+        static String usrId[];
         
-        private boolean[] visitiadoAnchura ;
-        private boolean[] visitiadoProfunidad;
+        static private boolean[] visitiadoAnchura ;
+        static private boolean[] visitiadoProfunidad;
 
         boolean Usuarios;
         Arista matrizAd [][];
@@ -39,55 +39,7 @@ public class Grafo{
         this.visited = false;
     }
 
-   
-    public void Leertxt(){
-//            
-//                    
-//                    Nodo<Usuario> usuarios = Main.repo.getUsuariosList().getPrimero();
-//                    Nodo<Arista> relaciones = Main.repo.getAristaList().getPrimero();
-//                    String usuariosStr = "";
-//                    String relacionesStr ="";
-//                    while(usuarios!=null){
-//                        
-//                        usuariosStr = usuariosStr + String.valueOf(usuarios.getValor().getId()) + "," + usuarios.getValor().getUsuario() + "\n";
-//                        usuarios = usuarios.getSiguiente();
-//                        
-//                    }
-//                    
-//                    while(relaciones!=null){
-//                        
-//                        relacionesStr = relacionesStr + String.valueOf(relaciones.getValor().getOrigen()) + "," + relaciones.getValor().getDestino()+ "," + relaciones.getValor().getYears()+ "\n";
-//                        relaciones = relaciones.getSiguiente();                        
-//                    }
-//                    
-//                  if ((!"".equals(relacionesStr)) && (!"".equals(usuariosStr))){
-//                    String[] UsersSplit = usuariosStr.split("\n");
-//                    String[] RelationSplit = relacionesStr.split("\n");
-//                    
-//                    for (int i = 0; i < UsersSplit.length; i++) {
-//                        String[] UsersSplit2 = UsersSplit[i].split(",");
-//                        System.out.println(Arrays.toString(users));
-//                         users[i] = UsersSplit2;
-//                         
-//                    }
-//                    
-//                    for (int j = 0; j < RelationSplit.length; j++) {
-//                        String[] RelationSplit2 = RelationSplit[j].split(",");
-//                        relation[j] = RelationSplit2;
-//                        
-//                    
-//                  }
-//                     for (int i = 0; i < relation.length; i++) {
-//                          System.out.println(i);  
-//                      }
-//                   
-//                    }        
-
-
-                       
-            
-    }  
-     public void crearMatrizAd(){
+     public static void crearMatrizAd(){
          
          Nodo<Arista> relaciones = Main.repo.getAristaList().getPrimero();
          Lista<Usuario> usuarios = Main.repo.getUsuariosList();
@@ -119,32 +71,62 @@ public class Grafo{
                     if(Integer.parseInt(usrId[i]) == dest)destIndex = i;
                     
                 }
-                ady[orgIndex][destIndex] = year;
+                ady[destIndex][orgIndex] = year;
                 relaciones = relaciones.getSiguiente();
             }
-//            for(int j=0; j< usrId.length; j++){
-//                
-//                    System.out.print( usrId[j] + "  " );        
-//                
-//            }
-//            System.out.println();
-//            for(int i=0; i< ady.length; i++){
-//                System.out.print( usrId[i] + "  " );
-//            for(int j=0; j< ady.length; j++){
-//                
-//                    System.out.print( ady[i][j] + "  " );        
-//                
-//            }
-//            System.out.println();
-//        }          
+            System.out.print("    ");
+            for(int j=0; j< usrId.length; j++){
+                
+                    System.out.print( usrId[j] + "  " );        
+                
+            }
+            System.out.println();
+            for(int i=0; i< ady.length; i++){
+                System.out.print( usrId[i] + "  " );
+            for(int j=0; j< ady.length; j++){
+                
+                    System.out.print( ady[i][j] + "  " );        
+                
+            }
+            System.out.println();
+        }          
     Main.matrizAdy = ady;
-         recorridoAnchura(0);
+//         recorridoAnchura(0);
      
 }
      
 
+public static String printMatriz(){
+            
+            String matriz = "";
+            matriz = matriz.concat("    ");
+            System.out.print("    ");
+            for(int j=0; j< usrId.length; j++){
+                
+                matriz = matriz.concat(usrId[j] + "  ");
+                    System.out.print( usrId[j] + "  " );        
+                
+            }
+            matriz = matriz.concat("\n");
+            System.out.println();
+            for(int i=0; i< Main.matrizAdy.length; i++){
+                matriz = matriz.concat(usrId[i] + "  ");
+                System.out.print( usrId[i] + "  " );
+            for(int j=0; j< Main.matrizAdy.length; j++){
+                    
+                    matriz = matriz.concat(Main.matrizAdy[i][j] + "  ");
+                    System.out.print( Main.matrizAdy[i][j] + "  " );        
+                
+            }
+            matriz = matriz.concat("\n");
+            System.out.println();
+            }
+            return matriz;
+}     
 
-public Lista<Integer> recorridoAnchura(int nodoI) {
+
+public static Lista<Integer> recorridoAnchura(int nodoI) {
+    
         visitiadoAnchura = new boolean[Main.matrizAdy.length];
         visitiadoProfunidad = new boolean[Main.matrizAdy.length];
         //Lista donde guardo los nodos recorridos
@@ -160,16 +142,17 @@ public Lista<Integer> recorridoAnchura(int nodoI) {
         //Hasta que visite todos los nodos
         while (cola.getPrimero()!=null) {
             int j = (int)cola.getPrimero().getValor();
-            System.out.println("------------------------------->" + usrId[j]);
-            System.out.println(cola.getPrimero().getValor()+ "----//----");
+//            System.out.println("------------------------------->" + usrId[j]);
+//            System.out.println(cola.getPrimero().getValor()+ "----//----");
             cola.eliminarAlInicio(); //Se saca el primero nodo de la cola
         //Se busca en la matriz que representa el grafo los nodos adyacentes
         for (int i = 0; i < Main.matrizAdy.length; i++) {
         //Si es un nodo adyacente y no está visitado entonces
-            System.out.println((Main.matrizAdy[j][i] >= 1) + "--");
-            System.out.println(visitiadoAnchura[i]);
-            if (Main.matrizAdy[j][i] >= 1 && !visitiadoAnchura[i]) {
-                System.out.println(i + "//////////////////");
+//            System.out.println((Main.matrizAdy[i][j] >= 1) + "--");
+//            System.out.println((Main.matrizAdy[i][j] ) + "<-->" + j + "<-->" + i );
+//            System.out.println(visitiadoAnchura[i]);
+            if (Main.matrizAdy[i][j] >= 1 && !visitiadoAnchura[i]) {
+//                System.out.println(i + "//////////////////");
                 cola.agregarAlFinal(i);//Se agrega a la cola de visitas
                 recorridos.agregarAlFinal(i);//Se marca como recorrido
                 visitiadoAnchura[i] = true;//Se marca como visitado
@@ -178,7 +161,6 @@ public Lista<Integer> recorridoAnchura(int nodoI) {
         }
         Nodo<Integer> i = recorridos.getPrimero();
         while(i != null){
-            
             System.out.println("----" + usrId[i.getValor()] + "----");
             i = i.getSiguiente();
         }
