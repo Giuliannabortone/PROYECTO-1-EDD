@@ -43,7 +43,6 @@ public class Main extends javax.swing.JFrame {
         actualizar = new javax.swing.JButton();
         mostrar = new javax.swing.JButton();
         cantidad_islas = new javax.swing.JButton();
-        modificar = new javax.swing.JButton();
         image1 = new javax.swing.JLabel();
         identificacion_puentes = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -89,16 +88,6 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        modificar.setBackground(new java.awt.Color(255, 102, 0));
-        modificar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        modificar.setText("Modificar");
-        modificar.setEnabled(false);
-        modificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modificarActionPerformed(evt);
-            }
-        });
-
         identificacion_puentes.setBackground(new java.awt.Color(255, 102, 0));
         identificacion_puentes.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         identificacion_puentes.setText("Identificación de puentes");
@@ -128,8 +117,7 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(mostrar)
                             .addComponent(cantidad_islas)
                             .addComponent(cargar)
-                            .addComponent(identificacion_puentes)
-                            .addComponent(modificar))
+                            .addComponent(identificacion_puentes))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(image1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(281, 281, 281)))
@@ -153,9 +141,7 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(cantidad_islas)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(identificacion_puentes, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 80, Short.MAX_VALUE)))
+                        .addGap(0, 122, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -171,8 +157,10 @@ public class Main extends javax.swing.JFrame {
         mostrar.setEnabled(true);
         cantidad_islas.setEnabled(true);
         identificacion_puentes.setEnabled(true);
+        Grafo grafo = new Grafo();
+        grafo.crearMatrizAd();
        }else{
-           actualizar.setEnabled(false);
+        actualizar.setEnabled(false);
         mostrar.setEnabled(false);
         cantidad_islas.setEnabled(false);
         identificacion_puentes.setEnabled(false);
@@ -205,15 +193,8 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_mostrarActionPerformed
 
     private void cantidad_islasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantidad_islasActionPerformed
-        Grafo grafito = new Grafo();
-        grafito.crearMatrizAd();
-                System.out.println(matrizAdy);
-        System.out.println(repo.getUsuariosList().getPrimero().getValor());
+        Grafo.recorridoAnchura(0);
     }//GEN-LAST:event_cantidad_islasActionPerformed
-
-    private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
-
-    }//GEN-LAST:event_modificarActionPerformed
 
     private void identificacion_puentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_identificacion_puentesActionPerformed
         // TODO add your handling code here:
@@ -263,7 +244,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton identificacion_puentes;
     private javax.swing.JLabel image1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JButton modificar;
     private javax.swing.JButton mostrar;
     // End of variables declaration//GEN-END:variables
 }

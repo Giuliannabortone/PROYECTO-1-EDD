@@ -739,6 +739,7 @@ public class ActRepo extends javax.swing.JDialog {
         // TODO add your handling code here:
         
         Funciones.actualizarTxt();
+        Grafo.crearMatrizAd();
         JOptionPane.showMessageDialog(this, "Informacion guardada");
     }//GEN-LAST:event_jButton4ActionPerformed
 
