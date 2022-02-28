@@ -16,8 +16,8 @@ import javax.swing.JOptionPane;
  * @author giubo
  */
 public class Main extends javax.swing.JFrame {
+
     Funciones a = new Funciones();
-    
 
     /**
      * Creates new form Main
@@ -155,7 +155,7 @@ public class Main extends javax.swing.JFrame {
 
     private void cargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarActionPerformed
 
-       this.repo = Funciones.extraerInf(jLabel1);
+        this.repo = Funciones.extraerInf(jLabel1);
 
     }//GEN-LAST:event_cargarActionPerformed
 
@@ -163,12 +163,17 @@ public class Main extends javax.swing.JFrame {
 
 //        JOptionPane.showOptionDialog(this, "Que accion deseas hacer ?", title, WIDTH, HEIGHT, icon, options, EXIT_ON_CLOSE)
         ActualizarRepo ar = new ActualizarRepo(this, true);
-        
+
         ar.setVisible(true);
         //this.dispose();
     }//GEN-LAST:event_actualizarActionPerformed
 
     private void mostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarActionPerformed
+        
+//        Mostrar_Grafo newWin = new Mostrar_Grafo(this.a);
+//        newWin.setVisible(true);
+//        this.dispose();
+
 
     }//GEN-LAST:event_mostrarActionPerformed
 
@@ -218,8 +223,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
     }
-    
-    
+
     static Repositorio repo;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton actualizar;
