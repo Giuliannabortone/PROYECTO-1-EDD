@@ -660,6 +660,7 @@ public class ActRepo extends javax.swing.JDialog {
                 idRelacionUsu = usuario.getValor().getId();
                 if(usuario.getAnterior()!=null)usuario.getAnterior().setSiguiente(usuario.getSiguiente());
                 if(usuario.getSiguiente()!=null)usuario.getSiguiente().setAnterior(usuario.getAnterior());
+                if(usuario.getSiguiente() == null && usuario.getAnterior()==null)Main.repo.getUsuariosList().setPrimero(null);
                 break;
             }
             usuario = usuario.getSiguiente();
@@ -672,6 +673,7 @@ public class ActRepo extends javax.swing.JDialog {
                     || relacion.getValor().getOrigen()== idRelacionUsu){
                 if(relacion.getAnterior()!=null)relacion.getAnterior().setSiguiente(relacion.getSiguiente());
                 if(relacion.getSiguiente()!=null)relacion.getSiguiente().setAnterior(relacion.getAnterior());
+                if(relacion.getSiguiente() == null && relacion.getAnterior()==null)Main.repo.getAristaList().setPrimero(null);
             }
             relacion = relacion.getSiguiente();
         }

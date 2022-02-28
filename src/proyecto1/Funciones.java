@@ -162,7 +162,7 @@ public class Funciones {
                }else{
                    
                    JOptionPane.showMessageDialog(padre, "Debe ingresar un archivo con extension '.txt' ");
-                   
+                   return null;
                }   
                }
                
