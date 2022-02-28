@@ -7,6 +7,7 @@ package proyecto1;
 /**
  *
  * @author smoreno
+ * @param <T>
  */
 public class Nodo<T> {
     
