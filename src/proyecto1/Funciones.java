@@ -24,9 +24,11 @@ import javax.swing.JOptionPane;
 
 public class Funciones {
     
+    public Grafo GrafoGuardado;
     public String  users [][];
     public String relation [][];
     boolean Usuarios;
+    
     
     /*CONSTRUCTOR*/
     

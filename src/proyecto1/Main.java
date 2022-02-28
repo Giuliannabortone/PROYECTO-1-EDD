@@ -16,8 +16,8 @@ import javax.swing.JOptionPane;
  * @author giubo
  */
 public class Main extends javax.swing.JFrame {
+
     Funciones a = new Funciones();
-    
 
     /**
      * Creates new form Main
@@ -165,18 +165,25 @@ public class Main extends javax.swing.JFrame {
        mostrar.setEnabled(true);
        cantidad_islas.setEnabled(true);
        identificacion_puentes.setEnabled(true);
+
     }//GEN-LAST:event_cargarActionPerformed
 
     private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
 
 //        JOptionPane.showOptionDialog(this, "Que accion deseas hacer ?", title, WIDTH, HEIGHT, icon, options, EXIT_ON_CLOSE)
         ActRepo ar = new ActRepo(this, true);
+
         ar.setVisible(true);
 
         //this.dispose();
     }//GEN-LAST:event_actualizarActionPerformed
 
     private void mostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarActionPerformed
+        
+//        Mostrar_Grafo newWin = new Mostrar_Grafo(this.a);
+//        newWin.setVisible(true);
+//        this.dispose();
+
 
     }//GEN-LAST:event_mostrarActionPerformed
 
@@ -227,7 +234,6 @@ public class Main extends javax.swing.JFrame {
             }
         });
     }
-    
     static int[][] matrizAdy;
     static String rutaTxt;
     static Repositorio repo;
