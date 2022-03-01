@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Multi-file class diagram">
+  <ClassDiagramComponents>
+    <Class name="ActRepo" package="proyecto1" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="idMax" type="int" visibility="private"/>
+        <Field name="modelo" type="DefaultListModel" visibility="private"/>
+        <Field name="jButton10" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton4" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton6" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton8" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButtonAggRelac" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButtonAggUsr" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButtonConfAggRel" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButtonConfAggUsr" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButtonConfDelUsr" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButtonDelUsr" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel5" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel6" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel7" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel8" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jListDelUsr" type="javax.swing.JList&lt;String&gt;" visibility="private"/>
+        <Field name="jListRelacion1" type="javax.swing.JList&lt;String&gt;" visibility="private"/>
+        <Field name="jListRelacion2" type="javax.swing.JList&lt;String&gt;" visibility="private"/>
+        <Field name="jListUsuarios" type="javax.swing.JList&lt;String&gt;" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanelAggRelac" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanelAggUsuario" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanelDelUsr" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jScrollPane1" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jScrollPane2" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jScrollPane3" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jScrollPane4" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jSpinnerAnios" type="javax.swing.JSpinner" visibility="private"/>
+        <Field name="jSpinnerAniosRel" type="javax.swing.JSpinner" visibility="private"/>
+        <Field name="jTextFieldNombreUsuario" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="java.awt.Frame" name="parent"/>
+          <Argument type="boolean" name="modal"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+void" visibility="private"/>
+        <Method name="jButtonAggUsrActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButtonConfAggUsrActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jTextFieldNombreUsuarioFocusLost" returnType="void" visibility="private">
+          <Argument type="java.awt.event.FocusEvent" name="evt"/>
+        </Method>
+        <Method name="jListUsuariosValueChanged" returnType="void" visibility="private">
+          <Argument type="javax.swing.event.ListSelectionEvent" name="evt"/>
+        </Method>
+        <Method name="jSpinnerAniosPropertyChange" returnType="void" visibility="private">
+          <Argument type="java.beans.PropertyChangeEvent" name="evt"/>
+        </Method>
+        <Method name="jSpinnerAniosStateChanged" returnType="void" visibility="private">
+          <Argument type="javax.swing.event.ChangeEvent" name="evt"/>
+        </Method>
+        <Method name="jButtonConfAggRelActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jListRelacion1ValueChanged" returnType="void" visibility="private">
+          <Argument type="javax.swing.event.ListSelectionEvent" name="evt"/>
+        </Method>
+        <Method name="jButtonAggRelacActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton6ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jListRelacion2ValueChanged" returnType="void" visibility="private">
+          <Argument type="javax.swing.event.ListSelectionEvent" name="evt"/>
+        </Method>
+        <Method name="jSpinnerAniosRelStateChanged" returnType="void" visibility="private">
+          <Argument type="javax.swing.event.ChangeEvent" name="evt"/>
+        </Method>
+        <Method name="jButton8ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButtonConfDelUsrActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton10ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jListDelUsrValueChanged" returnType="void" visibility="private">
+          <Argument type="javax.swing.event.ListSelectionEvent" name="evt"/>
+        </Method>
+        <Method name="jButtonDelUsrActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton4ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Arista" package="proyecto1" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="origen" type="int" visibility="private"/>
+        <Field name="destino" type="int" visibility="private"/>
+        <Field name="years" type="int" visibility="private"/>
+        <Field name="nombre1" type="String" visibility="private"/>
+        <Field name="nombre2" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="origen"/>
+          <Argument type="int" name="destino"/>
+          <Argument type="int" name="years"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getOrigen" returnType="int" visibility="public"/>
+        <Method name="setOrigen" returnType="void" visibility="public">
+          <Argument type="int" name="origen"/>
+        </Method>
+        <Method name="getDestino" returnType="int" visibility="public"/>
+        <Method name="setDestino" returnType="void" visibility="public">
+          <Argument type="int" name="destino"/>
+        </Method>
+        <Method name="getYears" returnType="int" visibility="public"/>
+        <Method name="setYears" returnType="void" visibility="public">
+          <Argument type="int" name="years"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Camino_Min_Floyd" package="proyecto1" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="AlgoritmoFloyd" returnType="String" visibility="public">
+          <Argument type="long[][]" name="mAdy"/>
+        </Method>
+        <Method name="caminosR" returnType="String" visibility="public">
+          <Argument type="int" name="i"/>
+          <Argument type="int" name="k"/>
+          <Argument type="String[][]" name="caminosAuxiliares"/>
+          <Argument type="String" name="caminoRecorrido"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Funciones" package="proyecto1" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="GrafoGuardado" type="Grafo" visibility="public"/>
+        <Field name="users" type="String" visibility="public"/>
+        <Field name="relation" type="String" visibility="public"/>
+        <Field name="Usuarios" type="boolean" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="actualizarTxt" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="extraerInf" returnType="Repositorio" visibility="public" isStatic="true">
+          <Argument type="Component" name="padre"/>
+        </Method>
+        <Method name="Leertxt" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Grafo" package="proyecto1" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields>
+        <Field name="users" type="String" visibility="package"/>
+        <Field name="relation" type="String" visibility="package"/>
+        <Field name="usrId" type="String" visibility="package" isStatic="true"/>
+        <Field name="visitiadoAnchura" type="boolean[]" visibility="private" isStatic="true"/>
+        <Field name="visitiadoProfunidad" type="boolean[]" visibility="private" isStatic="true"/>
+        <Field name="Usuarios" type="boolean" visibility="package"/>
+        <Field name="matrizAd" type="Arista" visibility="package"/>
+        <Field name="label" type="char" visibility="private"/>
+        <Field name="visited" type="boolean" visibility="private"/>
+        <Field name="vertices" type="int" visibility="public"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="crearMatrizAd" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="printMatriz" returnType="String" visibility="public" isStatic="true"/>
+        <Method name="recorridoAnchura" returnType="Lista&lt;Integer&gt;" visibility="public" isStatic="true">
+          <Argument type="int" name="nodoI"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Lista" package="proyecto1" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields>
+        <Field name="primero" type="Nodo&lt;T&gt;" visibility="private"/>
+        <Field name="ultimo" type="Nodo&lt;T&gt;" visibility="private"/>
+        <Field name="tamanio" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="eliminarAlFinal" returnType="void" visibility="public"/>
+        <Method name="agregarAlFinal" returnType="void" visibility="public">
+          <Argument type="T" name="valor"/>
+        </Method>
+        <Method name="agregarAlInicio" returnType="void" visibility="public">
+          <Argument type="T" name="valor"/>
+        </Method>
+        <Method name="eliminarAlInicio" returnType="void" visibility="public"/>
+        <Method name="agregarEnPosicion" returnType="void" visibility="public">
+          <Argument type="T" name="valor"/>
+          <Argument type="int" name="posicion"/>
+        </Method>
+        <Method name="eliminarEnPosicion" returnType="void" visibility="public">
+          <Argument type="int" name="posicion"/>
+        </Method>
+        <Method name="getPrimero" returnType="Nodo" visibility="public"/>
+        <Method name="setPrimero" returnType="void" visibility="public">
+          <Argument type="Nodo" name="primero"/>
+        </Method>
+        <Method name="getUltimo" returnType="Nodo" visibility="public"/>
+        <Method name="setUltimo" returnType="void" visibility="public">
+          <Argument type="Nodo" name="ultimo"/>
+        </Method>
+        <Method name="getTamanio" returnType="int" visibility="public"/>
+        <Method name="setTamanio" returnType="void" visibility="public">
+          <Argument type="int" name="tamanio"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Main" package="proyecto1" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields>
+        <Field name="a" type="Funciones" visibility="package"/>
+        <Field name="b" type="Grafo" visibility="package"/>
+        <Field name="matrizAdy" type="int[][]" visibility="package" isStatic="true"/>
+        <Field name="rutaTxt" type="String" visibility="package" isStatic="true"/>
+        <Field name="repo" type="Repositorio" visibility="package" isStatic="true"/>
+        <Field name="actualizar" type="javax.swing.JButton" visibility="private"/>
+        <Field name="cantidad_islas" type="javax.swing.JButton" visibility="private"/>
+        <Field name="cargar" type="javax.swing.JButton" visibility="private"/>
+        <Field name="identificacion_puentes" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanelGrafo" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="mostrar" type="javax.swing.JButton" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Funciones" name="data"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+void" visibility="private"/>
+        <Method name="cargarActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="actualizarActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="mostrarActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="cantidad_islasActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="identificacion_puentesActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MostrarGrafo" package="proyecto1" visibility="public" xPosition="2120.0" yPosition="20.0">
+      <Fields>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+void" visibility="private"/>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MostrarGrafov1" package="proyecto1" visibility="public" xPosition="20.0" yPosition="420.0">
+      <Fields>
+        <Field name="data" type="Funciones" visibility="package"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jScrollPane1" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="pantalla" type="javax.swing.JTextArea" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="java.awt.Frame" name="parent"/>
+          <Argument type="boolean" name="modal"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="MostrarGrafov1" returnType="void" visibility="public"/>
+        <Method name="getPanel" returnType="JPanel" visibility="public"/>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+void" visibility="private"/>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Nodo" package="proyecto1" visibility="public" xPosition="320.0" yPosition="420.0">
+      <Fields>
+        <Field name="siguiente" type="Nodo&lt;T&gt;" visibility="package"/>
+        <Field name="valor" type="T" visibility="package"/>
+        <Field name="anterior" type="Nodo&lt;T&gt;" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getValor" returnType="T" visibility="public"/>
+        <Method name="setValor" returnType="void" visibility="public">
+          <Argument type="T" name="valor"/>
+        </Method>
+        <Method name="getSiguiente" returnType="Nodo&lt;T&gt;" visibility="public"/>
+        <Method name="setSiguiente" returnType="void" visibility="public">
+          <Argument type="Nodo&lt;T&gt;" name="siguiente"/>
+        </Method>
+        <Method name="getAnterior" returnType="Nodo&lt;T&gt;" visibility="public"/>
+        <Method name="setAnterior" returnType="void" visibility="public">
+          <Argument type="Nodo&lt;T&gt;" name="anterior"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="NumPuentes" package="proyecto1" visibility="public" xPosition="620.0" yPosition="420.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="java.awt.Frame" name="parent"/>
+          <Argument type="boolean" name="modal"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+void" visibility="private"/>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PROYECTO1" package="proyecto1" visibility="public" xPosition="920.0" yPosition="420.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Queue" package="proyecto1" visibility="public" xPosition="1220.0" yPosition="420.0">
+      <Fields>
+        <Field name="head" type="Nodo" visibility="public"/>
+        <Field name="back" type="Nodo" visibility="public"/>
+        <Field name="size" type="int" visibility="public"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="isEmpty" returnType="boolean" visibility="public"/>
+        <Method name="Empty" returnType="void" visibility="public"/>
+        <Method name="encolar" returnType="void" visibility="public">
+          <Argument type="Nodo" name="nuevo"/>
+        </Method>
+        <Method name="desencolar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Recorrer_Grafo" package="proyecto1" visibility="public" xPosition="1520.0" yPosition="420.0">
+      <Fields>
+        <Field name="jButton1" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton2" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton3" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jTextField1" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+void" visibility="private"/>
+        <Method name="jButton2ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jTextField1ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton3ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="RecorridoAnch" package="proyecto1" visibility="public" xPosition="1820.0" yPosition="420.0">
+      <Fields>
+        <Field name="jScrollPane1" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jTextArea1Pantalla" type="javax.swing.JTextArea" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="java.awt.Frame" name="parent"/>
+          <Argument type="boolean" name="modal"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+void" visibility="private"/>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Repositorio" package="proyecto1" visibility="public" xPosition="2120.0" yPosition="420.0">
+      <Fields>
+        <Field name="usuariosList" type="Lista&lt;Usuario&gt;" visibility="private"/>
+        <Field name="aristaList" type="Lista&lt;Arista&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getUsuariosList" returnType="Lista&lt;Usuario&gt;" visibility="public"/>
+        <Method name="setUsuariosList" returnType="void" visibility="public">
+          <Argument type="Lista&lt;Usuario&gt;" name="usuariosList"/>
+        </Method>
+        <Method name="getAristaList" returnType="Lista&lt;Arista&gt;" visibility="public"/>
+        <Method name="setAristaList" returnType="void" visibility="public">
+          <Argument type="Lista&lt;Arista&gt;" name="aristaList"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Usuario" package="proyecto1" visibility="public" xPosition="20.0" yPosition="820.0">
+      <Fields>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="usuario" type="String" visibility="private"/>
+        <Field name="index" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getUsuario" returnType="String" visibility="public"/>
+        <Method name="setUsuario" returnType="void" visibility="public">
+          <Argument type="String" name="usuario"/>
+        </Method>
+        <Method name="getIndex" returnType="int" visibility="public"/>
+        <Method name="setIndex" returnType="void" visibility="public">
+          <Argument type="int" name="index"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Vertex" package="proyecto1" visibility="public" xPosition="320.0" yPosition="820.0">
+      <Fields>
+        <Field name="label" type="char" visibility="private"/>
+        <Field name="visited" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="char" name="label"/>
+          <Argument type="boolean" name="visited"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="puentes" package="proyecto1" visibility="public" xPosition="620.0" yPosition="820.0">
+      <Fields>
+        <Field name="V" type="int" visibility="private"/>
+        <Field name="adj" type="LinkedList&lt;Integer&gt;" visibility="private"/>
+        <Field name="time" type="int" visibility="package"/>
+        <Field name="NIL" type="int" visibility="package" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="int" name="v"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="addEdge" returnType="void" visibility="package">
+          <Argument type="int" name="v"/>
+          <Argument type="int" name="w"/>
+        </Method>
+        <Method name="bridgeUtil" returnType="void" visibility="package">
+          <Argument type="int" name="u"/>
+          <Argument type="boolean" name="visited"/>
+          <Argument type="int" name="disc"/>
+          <Argument type="int" name="low"/>
+          <Argument type="int" name="parent"/>
+        </Method>
+        <Method name="bridge" returnType="void" visibility="package"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="matrizAd" source="proyecto1.Grafo" target="proyecto1.Arista" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="a" source="proyecto1.Main" target="proyecto1.Funciones" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="proyecto1.Nodo" target="proyecto1.Nodo" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="proyecto1.Funciones" target="proyecto1.Repositorio" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="b" source="proyecto1.Main" target="proyecto1.Grafo" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="repo" source="proyecto1.Main" target="proyecto1.Repositorio" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="proyecto1.Queue" target="proyecto1.Nodo" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="proyecto1.Repositorio" target="proyecto1.Lista" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="head" source="proyecto1.Queue" target="proyecto1.Nodo" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="GrafoGuardado" source="proyecto1.Funciones" target="proyecto1.Grafo" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="proyecto1.Grafo" target="proyecto1.Lista" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="aristaList" source="proyecto1.Repositorio" target="proyecto1.Arista" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="Lista&lt;Arista&gt;"/>
+    <UseRelation source="proyecto1.Lista" target="proyecto1.Nodo" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="usuariosList" source="proyecto1.Repositorio" target="proyecto1.Usuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="Lista&lt;Usuario&gt;"/>
+    <HasRelation name="data" source="proyecto1.MostrarGrafov1" target="proyecto1.Funciones" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="back" source="proyecto1.Queue" target="proyecto1.Nodo" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="proyecto1.Repositorio" target="proyecto1.Usuario" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
