@@ -161,7 +161,7 @@ public static Lista<Integer> recorridoAnchura(int nodoI) {
         }
         Nodo<Integer> i = recorridos.getPrimero();
         while(i != null){
-            System.out.println("----" + usrId[i.getValor()] + "----");
+             System.out.println("----" + usrId[i.getValor()] + "----");
             i = i.getSiguiente();
         }
         

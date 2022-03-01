@@ -17,6 +17,10 @@ public class puentes {
  
     // Array  of lists for Adjacency List Representation
     private LinkedList<Integer> adj[];
+    
+    
+    
+    
     int time = 0;
     static final int NIL = -1;
  
