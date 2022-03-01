@@ -17,6 +17,7 @@ import libGraph.GraphDraw;
 import libGraph.Node;
 import static proyecto1.Grafo.usrId;
 
+
 /**
  *
  * @author giubo
@@ -24,6 +25,8 @@ import static proyecto1.Grafo.usrId;
 public class Main extends javax.swing.JFrame {
 
     Funciones a = new Funciones();
+    Grafo b = new Grafo();
+    
 
     /**
      * Creates new form Main
@@ -49,9 +52,9 @@ public class Main extends javax.swing.JFrame {
         actualizar = new javax.swing.JButton();
         mostrar = new javax.swing.JButton();
         cantidad_islas = new javax.swing.JButton();
-        identificacion_puentes = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanelGrafo = new javax.swing.JPanel();
+        identificacion_puentes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,20 +90,10 @@ public class Main extends javax.swing.JFrame {
         cantidad_islas.setBackground(new java.awt.Color(255, 102, 0));
         cantidad_islas.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         cantidad_islas.setEnabled(false);
-        cantidad_islas.setText("Mostrar cantidad de islas");
+        cantidad_islas.setText("Mostrar cantidad de islas (Anchura)");
         cantidad_islas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cantidad_islasActionPerformed(evt);
-            }
-        });
-
-        identificacion_puentes.setBackground(new java.awt.Color(255, 102, 0));
-        identificacion_puentes.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        identificacion_puentes.setText("Identificación de puentes");
-        identificacion_puentes.setEnabled(false);
-        identificacion_puentes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                identificacion_puentesActionPerformed(evt);
             }
         });
 
@@ -115,12 +108,22 @@ public class Main extends javax.swing.JFrame {
         jPanelGrafo.setLayout(jPanelGrafoLayout);
         jPanelGrafoLayout.setHorizontalGroup(
             jPanelGrafoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 953, Short.MAX_VALUE)
         );
         jPanelGrafoLayout.setVerticalGroup(
             jPanelGrafoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 298, Short.MAX_VALUE)
         );
+
+        identificacion_puentes.setBackground(new java.awt.Color(255, 102, 0));
+        identificacion_puentes.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        identificacion_puentes.setText("Identificación de puentes");
+        identificacion_puentes.setEnabled(false);
+        identificacion_puentes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                identificacion_puentesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -132,12 +135,12 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1214, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(identificacion_puentes)
                             .addComponent(actualizar)
                             .addComponent(mostrar)
                             .addComponent(cantidad_islas)
-                            .addComponent(cargar))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(cargar)
+                            .addComponent(identificacion_puentes))
+                        .addGap(30, 30, 30)
                         .addComponent(jPanelGrafo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -156,7 +159,7 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(mostrar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cantidad_islas)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(identificacion_puentes, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanelGrafo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(61, Short.MAX_VALUE))
@@ -174,6 +177,7 @@ public class Main extends javax.swing.JFrame {
         mostrar.setEnabled(true);
         cantidad_islas.setEnabled(true);
         identificacion_puentes.setEnabled(true);
+//         cantidad_islas1.setEnabled(true);
         Grafo grafo = new Grafo();
         grafo.crearMatrizAd();
        }else{
@@ -181,6 +185,7 @@ public class Main extends javax.swing.JFrame {
         mostrar.setEnabled(false);
         cantidad_islas.setEnabled(false);
         identificacion_puentes.setEnabled(false);
+//        cantidad_islas1.setEnabled(false);
        }
     }//GEN-LAST:event_cargarActionPerformed
 
@@ -256,7 +261,15 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_mostrarActionPerformed
 
     private void cantidad_islasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantidad_islasActionPerformed
+        
+        RecorridoAnch ar = new RecorridoAnch(this, true);
+
+        ar.setVisible(true);
+        
+        
         Grafo.recorridoAnchura(0);
+        
+        
     }//GEN-LAST:event_cantidad_islasActionPerformed
 
     private void identificacion_puentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_identificacion_puentesActionPerformed
