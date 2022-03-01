@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="libGraph">
+  <ClassDiagramComponents>
+    <Class name="Edge" package="libGraph" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="startPosition" type="Node.Position" visibility="private"/>
+        <Field name="endPosition" type="Node.Position" visibility="private"/>
+        <Field name="weight" type="int" visibility="private"/>
+        <Field name="isWeighted" type="boolean" visibility="private"/>
+        <Field name="color" type="Color" visibility="private"/>
+        <Field name="focussed" type="boolean" visibility="private"/>
+        <Field name="name1" type="String" visibility="private"/>
+        <Field name="name2" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Node" name="node1"/>
+          <Argument type="Node" name="node2"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="Node" name="node1"/>
+          <Argument type="Node" name="node2"/>
+          <Argument type="int" name="weight"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getColor" returnType="Color" visibility="public"/>
+        <Method name="getWeight" returnType="int" visibility="public"/>
+        <Method name="getEndPosition" returnType="Node.Position" visibility="public"/>
+        <Method name="getStartPosition" returnType="Node.Position" visibility="public"/>
+        <Method name="isFocussed" returnType="boolean" visibility="public"/>
+        <Method name="isWeighted" returnType="boolean" visibility="public"/>
+        <Method name="setFocussed" returnType="void" visibility="public">
+          <Argument type="boolean" name="focussed"/>
+        </Method>
+        <Method name="setEndPosition" returnType="void" visibility="public">
+          <Argument type="Node" name="endPosition"/>
+        </Method>
+        <Method name="setStartPosition" returnType="void" visibility="public">
+          <Argument type="Node" name="startPosition"/>
+        </Method>
+        <Method name="setColor" returnType="void" visibility="public">
+          <Argument type="Color" name="color"/>
+        </Method>
+        <Method name="getCenterPosition" returnType="Node.Position" visibility="public"/>
+        <Method name="setWeight" returnType="void" visibility="public">
+          <Argument type="int" name="weight"/>
+        </Method>
+        <Method name="getSlope" returnType="float" visibility="public"/>
+        <Method name="getStartName" returnType="String" visibility="public"/>
+        <Method name="getEndName" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="GraphDraw" package="libGraph" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="MINIMUM_EDGE_SIZE" type="int" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="EDGE_PADDING" type="int" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="backGroundColor" type="Color" visibility="private"/>
+        <Field name="edgeList" type="List&lt;Edge&gt;" visibility="private"/>
+        <Field name="nodesList" type="List&lt;Node&gt;" visibility="private"/>
+        <Field name="metrics" type="FontMetrics" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="setEdgeList" returnType="void" visibility="public">
+          <Argument type="List&lt;Edge&gt;" name="edgeList"/>
+        </Method>
+        <Method name="setNodesList" returnType="void" visibility="public">
+          <Argument type="List&lt;Node&gt;" name="nodesList"/>
+        </Method>
+        <Method name="addNode" returnType="void" visibility="public">
+          <Argument type="Node" name="node"/>
+        </Method>
+        <Method name="addEdge" returnType="void" visibility="public">
+          <Argument type="Edge" name="edge"/>
+        </Method>
+        <Method name="getEdgeList" returnType="List&lt;Edge&gt;" visibility="public"/>
+        <Method name="getNodesList" returnType="List&lt;Node&gt;" visibility="public"/>
+        <Method name="paint" returnType="void" visibility="public">
+          <Argument type="Graphics" name="g"/>
+        </Method>
+        <Method name="drawNodes" returnType="void" visibility="private">
+          <Argument type="Graphics2D" name="g2d"/>
+        </Method>
+        <Method name="drawNode" returnType="void" visibility="private">
+          <Argument type="Graphics2D" name="g2d"/>
+          <Argument type="Node" name="node"/>
+        </Method>
+        <Method name="measure" returnType="int" visibility="private">
+          <Argument type="String" name="text"/>
+        </Method>
+        <Method name="measureWithoutPadding" returnType="int" visibility="private">
+          <Argument type="String" name="text"/>
+        </Method>
+        <Method name="drawEdges" returnType="void" visibility="private">
+          <Argument type="Graphics2D" name="g2d"/>
+        </Method>
+        <Method name="drawEdge" returnType="void" visibility="private">
+          <Argument type="Graphics2D" name="g2d"/>
+          <Argument type="Edge" name="edge"/>
+        </Method>
+        <Method name="update" returnType="int" visibility="public">
+          <Argument type="int" name="i"/>
+        </Method>
+        <Method name="paintBackground" returnType="void" visibility="private">
+          <Argument type="Graphics2D" name="g2d"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="NameUtil" package="libGraph" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="instance" type="NameUtil" visibility="private" isStatic="true"/>
+        <Field name="characters" type="List&lt;Character&gt;" visibility="private"/>
+        <Field name="lastName" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getInstance" returnType="NameUtil" visibility="public" isStatic="true"/>
+        <Method name="initCharacters" returnType="void" visibility="private"/>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="getNextChar" returnType="char" visibility="private"/>
+        <Method name="deliverAndUpdateName" returnType="String" visibility="private">
+          <Argument type="char" name="ch"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Node" package="libGraph" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="automaticName" type="boolean" visibility="private"/>
+        <Field name="displayName" type="String" visibility="private"/>
+        <Field name="color" type="Color" visibility="private"/>
+        <Field name="position" type="Position" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Position" name="edgePosition"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setDisplayName" returnType="void" visibility="public">
+          <Argument type="String" name="displayName"/>
+        </Method>
+        <Method name="setPosition" returnType="void" visibility="public">
+          <Argument type="Position" name="position"/>
+        </Method>
+        <Method name="setColor" returnType="void" visibility="public">
+          <Argument type="Color" name="color"/>
+        </Method>
+        <Method name="getColor" returnType="Color" visibility="public"/>
+        <Method name="isAutomaticName" returnType="boolean" visibility="public"/>
+        <Method name="getDisplayName" returnType="String" visibility="public"/>
+        <Method name="getPosition" returnType="Position" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="libGraph.Edge" target="libGraph.Node" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="nodesList" source="libGraph.GraphDraw" target="libGraph.Node" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Node&gt;"/>
+    <HasRelation name="edgeList" source="libGraph.GraphDraw" target="libGraph.Edge" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Edge&gt;"/>
+    <UseRelation source="libGraph.GraphDraw" target="libGraph.Node" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="libGraph.NameUtil" target="libGraph.NameUtil" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="instance" source="libGraph.NameUtil" target="libGraph.NameUtil" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="libGraph.GraphDraw" target="libGraph.Edge" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

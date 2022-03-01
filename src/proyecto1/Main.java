@@ -4,17 +4,39 @@
  */
 package proyecto1;
 
+import java.awt.Color;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import libGraph.Edge;
+import libGraph.GraphDraw;
+import libGraph.Node;
+import static proyecto1.Grafo.usrId;
+
+
 /**
  *
  * @author giubo
  */
 public class Main extends javax.swing.JFrame {
 
+    Funciones a = new Funciones();
+    Grafo b = new Grafo();
+    
+
     /**
      * Creates new form Main
      */
     public Main() {
         initComponents();
+    }
+    
+    public Main(Funciones data){
+        
     }
 
     /**
@@ -26,17 +48,80 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        cargar = new javax.swing.JButton();
+        actualizar = new javax.swing.JButton();
+        mostrar = new javax.swing.JButton();
+        cantidad_islas = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jPanelGrafo = new javax.swing.JPanel();
+        identificacion_puentes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("jLabel1");
-
-        jButton1.setText("Cargar txt");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        cargar.setBackground(new java.awt.Color(255, 102, 0));
+        cargar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        cargar.setText("Cargar archivo");
+        cargar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                cargarActionPerformed(evt);
+            }
+        });
+
+        actualizar.setBackground(new java.awt.Color(255, 102, 0));
+        actualizar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        actualizar.setText("Actualizar repositorio");
+        actualizar.setEnabled(false);
+        actualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actualizarActionPerformed(evt);
+            }
+        });
+
+        mostrar.setBackground(new java.awt.Color(255, 102, 0));
+        mostrar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        mostrar.setEnabled(false);
+        mostrar.setText("Mostrar grafo");
+        mostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarActionPerformed(evt);
+            }
+        });
+
+        cantidad_islas.setBackground(new java.awt.Color(255, 102, 0));
+        cantidad_islas.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        cantidad_islas.setEnabled(false);
+        cantidad_islas.setText("Mostrar cantidad de islas (Anchura)");
+        cantidad_islas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cantidad_islasActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(250, 148, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Proyecto 1");
+
+        jPanelGrafo.setVisible(false);
+
+        javax.swing.GroupLayout jPanelGrafoLayout = new javax.swing.GroupLayout(jPanelGrafo);
+        jPanelGrafo.setLayout(jPanelGrafoLayout);
+        jPanelGrafoLayout.setHorizontalGroup(
+            jPanelGrafoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 953, Short.MAX_VALUE)
+        );
+        jPanelGrafoLayout.setVerticalGroup(
+            jPanelGrafoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 298, Short.MAX_VALUE)
+        );
+
+        identificacion_puentes.setBackground(new java.awt.Color(255, 102, 0));
+        identificacion_puentes.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        identificacion_puentes.setText("Identificación de puentes");
+        identificacion_puentes.setEnabled(false);
+        identificacion_puentes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                identificacion_puentesActionPerformed(evt);
             }
         });
 
@@ -45,32 +130,151 @@ public class Main extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1214, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(172, 172, 172)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jButton1)))
-                .addContainerGap(194, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(actualizar)
+                            .addComponent(mostrar)
+                            .addComponent(cantidad_islas)
+                            .addComponent(cargar)
+                            .addComponent(identificacion_puentes))
+                        .addGap(30, 30, 30)
+                        .addComponent(jPanelGrafo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(50, 50, 50)
-                .addComponent(jButton1)
-                .addContainerGap(200, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(cargar)
+                        .addGap(4, 4, 4)
+                        .addComponent(actualizar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(mostrar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cantidad_islas)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(identificacion_puentes, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanelGrafo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void cargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarActionPerformed
+
+       this.repo = Funciones.extraerInf(jLabel1);
+
+       if(this.repo != null){
+        actualizar.setEnabled(true);
+        mostrar.setEnabled(true);
+        cantidad_islas.setEnabled(true);
+        identificacion_puentes.setEnabled(true);
+//         cantidad_islas1.setEnabled(true);
+        Grafo grafo = new Grafo();
+        grafo.crearMatrizAd();
+       }else{
+        actualizar.setEnabled(false);
+        mostrar.setEnabled(false);
+        cantidad_islas.setEnabled(false);
+        identificacion_puentes.setEnabled(false);
+//        cantidad_islas1.setEnabled(false);
+       }
+    }//GEN-LAST:event_cargarActionPerformed
+
+    private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
+
+//        JOptionPane.showOptionDialog(this, "Que accion deseas hacer ?", title, WIDTH, HEIGHT, icon, options, EXIT_ON_CLOSE)
+        ActRepo ar = new ActRepo(this, true);
+
+        ar.setVisible(true);
+       
+
+        //this.dispose();
+    }//GEN-LAST:event_actualizarActionPerformed
+
+    private void mostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarActionPerformed
         
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+        GraphDraw dibujo = new GraphDraw();
+        Nodo<Arista> arista = repo.getAristaList().getPrimero(); 
+        ArrayList<Node> nodos = new ArrayList<>();
+        ArrayList<Edge> edges = new ArrayList<>();
+        System.out.print("    ");
+        int caNodo = 0;
+        int positionX = 0;
+        int positiony = 100;
+        int pares = 0;
+        for (String usrId1 : Grafo.usrId) {
+            
+            Node nodo = new Node();
+            nodo.setDisplayName(usrId1);
+            caNodo++;
+            if(caNodo%2 == 0){
+                nodo.setPosition(new Node.Position(positionX+100 * pares, positiony-100));
+                pares++;
+            }else{
+                nodo.setPosition(new Node.Position(positionX+100 * pares, positiony+100));
+            }
+            nodo.setColor(Color.yellow);
+            nodos.add(nodo);
+            
+        }
+        for (Node nodo : nodos) {
+            dibujo.addNode(nodo);
+        }
+        Edge edge = null;
+        for(int i=0; i< matrizAdy.length; i++){
+            for(int j=0; j< matrizAdy.length; j++){
+                    if(matrizAdy[i][j]!=0){
+                        System.out.println("----"+nodos.get(i).getDisplayName());
+                        System.out.println("----"+nodos.get(j).getDisplayName());
+                        edge = new Edge(nodos.get(i), nodos.get(j),matrizAdy[i][j]);
+                        edge.setFocussed(true);
+                        if(edge!=null)dibujo.addEdge(edge);
+                    }                   
+            }
+        }
+        
+        //displaying graph
+        
+        MostrarGrafov1 newWin = new MostrarGrafov1(this, true);
+        MostrarGrafo grafo = new MostrarGrafo();
+        dibujo.setSize(2000, 2000);
+        dibujo.setVisible(true);
+        jPanelGrafo.add(dibujo);
+        jPanelGrafo.setSize(2000, 2000);
+        jPanelGrafo.setVisible(true);
+        
+//        Mostrar_Grafo newWin = new Mostrar_Grafo(this.a);
+//        newWin.setVisible(true);
+//        this.dispose();
+
+
+    }//GEN-LAST:event_mostrarActionPerformed
+
+    private void cantidad_islasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantidad_islasActionPerformed
+        
+        RecorridoAnch ar = new RecorridoAnch(this, true);
+
+        ar.setVisible(true);
+        
+        
+        Grafo.recorridoAnchura(0);
+        
+        
+    }//GEN-LAST:event_cantidad_islasActionPerformed
+
+    private void identificacion_puentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_identificacion_puentesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_identificacion_puentesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -106,9 +310,16 @@ public class Main extends javax.swing.JFrame {
             }
         });
     }
-
+    static int[][] matrizAdy;
+    static String rutaTxt;
+    static Repositorio repo;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton actualizar;
+    private javax.swing.JButton cantidad_islas;
+    private javax.swing.JButton cargar;
+    private javax.swing.JButton identificacion_puentes;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanelGrafo;
+    private javax.swing.JButton mostrar;
     // End of variables declaration//GEN-END:variables
 }
