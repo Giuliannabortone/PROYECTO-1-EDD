@@ -25,6 +25,8 @@ import static proyecto1.Grafo.usrId;
 public class Main extends javax.swing.JFrame {
 
     Funciones a = new Funciones();
+    Grafo b = new Grafo();
+    
 
     /**
      * Creates new form Main
@@ -264,7 +266,9 @@ public class Main extends javax.swing.JFrame {
 
         ar.setVisible(true);
         
+        
         Grafo.recorridoAnchura(0);
+        
         
     }//GEN-LAST:event_cantidad_islasActionPerformed
 

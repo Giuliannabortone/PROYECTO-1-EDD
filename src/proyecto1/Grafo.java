@@ -131,6 +131,7 @@ public static Lista<Integer> recorridoAnchura(int nodoI) {
         visitiadoProfunidad = new boolean[Main.matrizAdy.length];
         //Lista donde guardo los nodos recorridos
         Lista<Integer> recorridos = new Lista<>();
+        System.out.println(recorridos);
         //El nodo inicial ya está visitado
         visitiadoAnchura[nodoI] = true;
         //Cola de visitas de los Lis adyacentes
@@ -166,7 +167,13 @@ public static Lista<Integer> recorridoAnchura(int nodoI) {
         }
         
                 return recorridos;//Devuelvo el recorrido del grafo en anchura
+                
             }
+
+
+
+
+
          
      }
      

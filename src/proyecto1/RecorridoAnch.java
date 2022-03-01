@@ -18,8 +18,10 @@ public class RecorridoAnch extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
 //        jTextArea1Pantalla.append(Grafo.recorridoAnchura(0));
-        System.out.println(Grafo.recorridoAnchura(0));
-        jTextArea1Pantalla.append("aaa");
+        
+        
+//        System.out.println(Grafo.recorridoAnchura(0));
+        jTextArea1Pantalla.append("Impreso en consola");
         
     }
 
