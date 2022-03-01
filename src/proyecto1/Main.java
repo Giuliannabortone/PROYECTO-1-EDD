@@ -4,12 +4,18 @@
  */
 package proyecto1;
 
+import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import libGraph.Edge;
+import libGraph.GraphDraw;
+import libGraph.Node;
+import static proyecto1.Grafo.usrId;
 
 /**
  *
@@ -43,9 +49,9 @@ public class Main extends javax.swing.JFrame {
         actualizar = new javax.swing.JButton();
         mostrar = new javax.swing.JButton();
         cantidad_islas = new javax.swing.JButton();
-        image1 = new javax.swing.JLabel();
         identificacion_puentes = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jPanelGrafo = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -103,6 +109,19 @@ public class Main extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Proyecto 1");
 
+        jPanelGrafo.setVisible(false);
+
+        javax.swing.GroupLayout jPanelGrafoLayout = new javax.swing.GroupLayout(jPanelGrafo);
+        jPanelGrafo.setLayout(jPanelGrafoLayout);
+        jPanelGrafoLayout.setHorizontalGroup(
+            jPanelGrafoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanelGrafoLayout.setVerticalGroup(
+            jPanelGrafoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 298, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -110,17 +129,16 @@ public class Main extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1214, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(identificacion_puentes)
                             .addComponent(actualizar)
                             .addComponent(mostrar)
                             .addComponent(cantidad_islas)
-                            .addComponent(cargar)
-                            .addComponent(identificacion_puentes))
+                            .addComponent(cargar))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(image1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(281, 281, 281)))
+                        .addComponent(jPanelGrafo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -130,7 +148,6 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(image1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(cargar)
                         .addGap(4, 4, 4)
@@ -140,9 +157,9 @@ public class Main extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cantidad_islas)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(identificacion_puentes, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 122, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(identificacion_puentes, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanelGrafo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         pack();
@@ -181,9 +198,55 @@ public class Main extends javax.swing.JFrame {
     private void mostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarActionPerformed
         
         
-        MostrarGrafov1 newWin = new MostrarGrafov1(this, true);
+        GraphDraw dibujo = new GraphDraw();
+        Nodo<Arista> arista = repo.getAristaList().getPrimero(); 
+        ArrayList<Node> nodos = new ArrayList<>();
+        ArrayList<Edge> edges = new ArrayList<>();
+        System.out.print("    ");
+        int caNodo = 0;
+        int positionX = 0;
+        int positiony = 100;
+        int pares = 0;
+        for (String usrId1 : Grafo.usrId) {
+            
+            Node nodo = new Node();
+            nodo.setDisplayName(usrId1);
+            caNodo++;
+            if(caNodo%2 == 0){
+                nodo.setPosition(new Node.Position(positionX+100 * pares, positiony-100));
+                pares++;
+            }else{
+                nodo.setPosition(new Node.Position(positionX+100 * pares, positiony+100));
+            }
+            nodo.setColor(Color.yellow);
+            nodos.add(nodo);
+            
+        }
+        for (Node nodo : nodos) {
+            dibujo.addNode(nodo);
+        }
+        Edge edge = null;
+        for(int i=0; i< matrizAdy.length; i++){
+            for(int j=0; j< matrizAdy.length; j++){
+                    if(matrizAdy[i][j]!=0){
+                        System.out.println("----"+nodos.get(i).getDisplayName());
+                        System.out.println("----"+nodos.get(j).getDisplayName());
+                        edge = new Edge(nodos.get(i), nodos.get(j),matrizAdy[i][j]);
+                        edge.setFocussed(true);
+                        if(edge!=null)dibujo.addEdge(edge);
+                    }                   
+            }
+        }
         
-        newWin.setVisible(true);
+        //displaying graph
+        
+        MostrarGrafov1 newWin = new MostrarGrafov1(this, true);
+        MostrarGrafo grafo = new MostrarGrafo();
+        dibujo.setSize(2000, 2000);
+        dibujo.setVisible(true);
+        jPanelGrafo.add(dibujo);
+        jPanelGrafo.setSize(2000, 2000);
+        jPanelGrafo.setVisible(true);
         
 //        Mostrar_Grafo newWin = new Mostrar_Grafo(this.a);
 //        newWin.setVisible(true);
@@ -242,8 +305,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton cantidad_islas;
     private javax.swing.JButton cargar;
     private javax.swing.JButton identificacion_puentes;
-    private javax.swing.JLabel image1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanelGrafo;
     private javax.swing.JButton mostrar;
     // End of variables declaration//GEN-END:variables
 }
